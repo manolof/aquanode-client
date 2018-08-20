@@ -1,0 +1,29 @@
+{
+  "name": "aquanode-client",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom --coverage",
+    "lint": "eslint ./src --fix",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "enzyme": "^3.4.4",
+    "enzyme-adapter-react-16": "^1.2.0",
+    "eslint": "^5.3.0",
+    "eslint-plugin-jest": "^21.21.0",
+    "eslint-plugin-react": "^7.11.1",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-redux": "^5.0.7",
+    "react-scripts": "1.1.4",
+    "redux": "^4.0.0",
+    "redux-devtools-extension": "^2.13.5",
+    "redux-thunk": "^2.3.0"
+  },
+  "proxy": "http://localhost:3003/api"
+}
