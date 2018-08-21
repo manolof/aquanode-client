@@ -1,11 +1,12 @@
 import { fetchSchedule } from '../services/schedule';
 import {
-	createGetScheduleAction,
-	createGetScheduleFailAction,
-	createGetScheduleStartAction,
-	createGetScheduleSuccessAction,
+	getScheduleAction,
+	getScheduleFailAction,
+	getScheduleStartAction,
+	getScheduleSuccessAction,
 	ScheduleActions,
 } from './schedule';
+
 jest.mock('../services/schedule');
 
 describe('schedule actions', () => {
@@ -18,7 +19,7 @@ describe('schedule actions', () => {
 	});
 
 	it('should create GET Start action', () => {
-		expect(createGetScheduleStartAction()).toEqual({
+		expect(getScheduleStartAction()).toEqual({
 			type: ScheduleActions.GET_START,
 		});
 	});
@@ -26,7 +27,7 @@ describe('schedule actions', () => {
 	it('should create GET Success action', () => {
 		const payload = {};
 
-		expect(createGetScheduleSuccessAction(payload)).toEqual({
+		expect(getScheduleSuccessAction(payload)).toEqual({
 			type: ScheduleActions.GET_SUCCESS,
 			payload,
 		});
@@ -35,13 +36,13 @@ describe('schedule actions', () => {
 	it('should create GET Fail action', () => {
 		const error = {};
 
-		expect(createGetScheduleFailAction(error)).toEqual({
+		expect(getScheduleFailAction(error)).toEqual({
 			type: ScheduleActions.GET_FAIL,
 			error,
 		});
 	});
 
-	describe('createGetScheduleAction', () => {
+	describe('getScheduleAction', () => {
 		let dispatch;
 		const mockResponse = { data: { res: 'test' } };
 
@@ -58,12 +59,12 @@ describe('schedule actions', () => {
 			jest.restoreAllMocks();
 		});
 
-		it('should fetch the schedule', async() => {
-			await createGetScheduleAction()(dispatch);
+		it('should fetch the schedule', async () => {
+			await getScheduleAction()(dispatch);
 
 			expect(dispatch).toHaveBeenCalledTimes(2);
-			expect(dispatch).toHaveBeenCalledWith(createGetScheduleStartAction());
-			expect(dispatch).toHaveBeenCalledWith(createGetScheduleSuccessAction(mockResponse));
+			expect(dispatch).toHaveBeenCalledWith(getScheduleStartAction());
+			expect(dispatch).toHaveBeenCalledWith(getScheduleSuccessAction(mockResponse));
 		});
 	});
 });

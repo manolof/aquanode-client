@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { createGetStatusAction } from '../../actions/status';
+import { getStatusAction } from '../../actions/status';
 import Status from '../../components/status/status';
 import { StatusModel } from '../../models/status';
 
@@ -31,7 +31,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-	fetchStatus: () => dispatch(createGetStatusAction()),
+	fetchStatus: () => dispatch(getStatusAction()),
 });
 
 export { StatusContainer };

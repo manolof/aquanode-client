@@ -12,26 +12,26 @@ export const ScheduleActions = Object.freeze({
 	SET_FAIL: '[Schedule] SET Fail',
 });
 
-export const createGetScheduleStartAction = () => ({
+export const getScheduleStartAction = () => ({
 	type: ScheduleActions.GET_START,
 });
 
-export const createGetScheduleSuccessAction = (payload) => ({
+export const getScheduleSuccessAction = (payload) => ({
 	type: ScheduleActions.GET_SUCCESS,
 	payload,
 });
 
-export const createGetScheduleFailAction = (error) => ({
+export const getScheduleFailAction = (error) => ({
 	type: ScheduleActions.GET_FAIL,
 	error,
 });
 
-export const createGetScheduleAction = () => (dispatch) => {
-	dispatch(createGetScheduleStartAction());
+export const getScheduleAction = () => (dispatch) => {
+	dispatch(getScheduleStartAction());
 
 	return fetchSchedule()
-		.then((data) => dispatch(createGetScheduleSuccessAction(data)))
-		.catch((err) => dispatch(createGetScheduleFailAction(err)));
+		.then((data) => dispatch(getScheduleSuccessAction(data)))
+		.catch((err) => dispatch(getScheduleFailAction(err)));
 
 };
 

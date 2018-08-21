@@ -6,25 +6,25 @@ export const StatusActions = Object.freeze({
 	GET_FAIL: '[Status] GET Fail',
 });
 
-export const createGetStatusStartAction = () => ({
+export const getStatusStartAction = () => ({
 	type: StatusActions.GET_START,
 });
 
-export const createGetStatusSuccessAction = (payload) => ({
+export const getStatusSuccessAction = (payload) => ({
 	type: StatusActions.GET_SUCCESS,
 	payload,
 });
 
-export const createGetStatusFailAction = (error) => ({
+export const getStatusFailAction = (error) => ({
 	type: StatusActions.GET_FAIL,
 	error,
 });
 
-export const createGetStatusAction = () => (dispatch) => {
-	dispatch(createGetStatusStartAction());
+export const getStatusAction = () => (dispatch) => {
+	dispatch(getStatusStartAction());
 
 	return fetchStatus()
-		.then((data) => dispatch(createGetStatusSuccessAction(data)))
-		.catch((err) => dispatch(createGetStatusFailAction(err)));
+		.then((data) => dispatch(getStatusSuccessAction(data)))
+		.catch((err) => dispatch(getStatusFailAction(err)));
 
 };

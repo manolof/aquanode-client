@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { createGetScheduleAction, resetScheduleAction, setScheduleAction } from '../../actions/schedule';
+import { getScheduleAction, resetScheduleAction, setScheduleAction } from '../../actions/schedule';
 import Schedule from '../../components/schedule/schedule';
 import { ScheduleModel } from '../../models/schedule';
 
@@ -33,7 +33,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-	fetchSchedule: () => dispatch(createGetScheduleAction()),
+	fetchSchedule: () => dispatch(getScheduleAction()),
 	setSchedule: (value) => dispatch(setScheduleAction(value)),
 	resetSchedule: () => dispatch(resetScheduleAction()),
 });
