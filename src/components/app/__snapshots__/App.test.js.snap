@@ -2,7 +2,17 @@
 
 exports[`App should render 1`] = `
 Array [
-  <Connect(StatusContainer) />,
-  <Connect(ScheduleContainer) />,
+  <div
+    className="wrapper"
+>
+    <header>
+        <Connect(StatusContainer) />
+    </header>
+    <div
+        className="content"
+    >
+        <Connect(ScheduleContainer) />
+    </div>
+</div>,
 ]
 `;
