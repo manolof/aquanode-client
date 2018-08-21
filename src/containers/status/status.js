@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { createGetStatusAction } from '../../actions/status';
-import Status from '../../components/status';
+import Status from '../../components/status/status';
 import { StatusModel } from '../../models/status';
 
 class StatusContainer extends Component {

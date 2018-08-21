@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { createGetScheduleAction, resetScheduleAction, setScheduleAction } from '../../actions/schedule';
-import Schedule from '../../components/schedule';
+import Schedule from '../../components/schedule/schedule';
 import { ScheduleModel } from '../../models/schedule';
 
 class ScheduleContainer extends Component {

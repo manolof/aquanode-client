@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import './App.css';
-import ScheduleContainer from '../../containers/schedule';
-import StatusContainer from '../../containers/status';
+import './app.css';
+import ScheduleContainer from '../../containers/schedule/schedule';
+import StatusContainer from '../../containers/status/status';
 
 class App extends Component {
 	render() {
