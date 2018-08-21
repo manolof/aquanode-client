@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 
+import './status.css';
 import { StatusModel } from '../../models/status';
 
 class Status extends Component {
@@ -7,18 +9,22 @@ class Status extends Component {
 		const { status } = this.props;
 
 		return (
-			<div className="Status">
-				<h4>The date now:</h4>
-				{
-					<p>{status.time}</p>
-				}
+			<div className="status-container">
+				<div className="server-time">
+					<strong>Server time:&nbsp;</strong>
+					{moment(status.time).format('MMM DD, HH:mm:ss')}
+				</div>
 
-				<h4>Status:</h4>
-				{
-					status.entities.map((entity) =>
-						<p key={entity.type}>{entity.type} : {entity.status}</p>,
-					)
-				}
+				<div className="statuses">
+					{
+						status.entities.map((entity) =>
+							entity.status &&
+							<span key={entity.type}>
+								{entity.type}: <strong>{entity.status}</strong>&nbsp;
+							</span>,
+						)
+					}
+				</div>
 			</div>
 		);
 	}
