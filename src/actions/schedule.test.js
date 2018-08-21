@@ -1,4 +1,4 @@
-import { fetchSchedule } from '../services/schedule';
+import { getSchedule } from '../services/schedule';
 import {
 	getScheduleAction,
 	getScheduleFailAction,
@@ -48,7 +48,7 @@ describe('schedule actions', () => {
 
 		beforeAll(() => {
 			dispatch = jest.fn();
-			fetchSchedule.mockImplementation(() => Promise.resolve(mockResponse));
+			getSchedule.mockImplementation(() => Promise.resolve(mockResponse));
 		});
 
 		afterEach(() => {

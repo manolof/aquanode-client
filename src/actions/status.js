@@ -1,4 +1,4 @@
-import { fetchStatus } from '../services/status';
+import { getStatus } from '../services/status';
 
 export const StatusActions = Object.freeze({
 	GET_START: '[Status] GET Start',
@@ -23,7 +23,7 @@ export const getStatusFailAction = (error) => ({
 export const getStatusAction = () => (dispatch) => {
 	dispatch(getStatusStartAction());
 
-	return fetchStatus()
+	return getStatus()
 		.then((data) => dispatch(getStatusSuccessAction(data)))
 		.catch((err) => dispatch(getStatusFailAction(err)));
 

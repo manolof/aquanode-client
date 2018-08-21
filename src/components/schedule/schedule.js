@@ -42,8 +42,8 @@ class Schedule extends Component {
 
 Schedule.propTypes = {
 	schedule: ScheduleModel.isRequired,
-	resetSchedule: PropTypes.func,
-	setSchedule: PropTypes.func,
+	resetSchedule: PropTypes.func.isRequired,
+	setSchedule: PropTypes.func.isRequired,
 };
 
 export default Schedule;

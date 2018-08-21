@@ -1,4 +1,4 @@
-export const fetchSchedule = () => {
+export const getSchedule = () => {
 	return fetch('/schedule')
 		.then((res) => res.json())
 		.then((res) => res.data);

@@ -1,4 +1,4 @@
-import { fetchSchedule, resetSchedule, setSchedule } from '../services/schedule';
+import { getSchedule, resetSchedule, setSchedule } from '../services/schedule';
 
 export const ScheduleActions = Object.freeze({
 	GET_START: '[Schedule] GET Start',
@@ -29,7 +29,7 @@ export const getScheduleFailAction = (error) => ({
 export const getScheduleAction = () => (dispatch) => {
 	dispatch(getScheduleStartAction());
 
-	return fetchSchedule()
+	return getSchedule()
 		.then((data) => dispatch(getScheduleSuccessAction(data)))
 		.catch((err) => dispatch(getScheduleFailAction(err)));
 

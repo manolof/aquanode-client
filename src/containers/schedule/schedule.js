@@ -8,8 +8,8 @@ import { ScheduleModel } from '../../models/schedule';
 
 class ScheduleContainer extends Component {
 	componentDidMount() {
-		const { fetchSchedule } = this.props;
-		fetchSchedule();
+		const { getSchedule } = this.props;
+		getSchedule();
 	}
 
 	render() {
@@ -23,7 +23,7 @@ class ScheduleContainer extends Component {
 
 ScheduleContainer.propTypes = {
 	schedule: ScheduleModel.isRequired,
-	fetchSchedule: PropTypes.func.isRequired,
+	getSchedule: PropTypes.func.isRequired,
 	setSchedule: PropTypes.func.isRequired,
 	resetSchedule: PropTypes.func.isRequired,
 };
@@ -33,7 +33,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-	fetchSchedule: () => dispatch(getScheduleAction()),
+	getSchedule: () => dispatch(getScheduleAction()),
 	setSchedule: (value) => dispatch(setScheduleAction(value)),
 	resetSchedule: () => dispatch(resetScheduleAction()),
 });

@@ -8,8 +8,8 @@ import { StatusModel } from '../../models/status';
 
 class StatusContainer extends Component {
 	componentDidMount() {
-		const { fetchStatus } = this.props;
-		fetchStatus();
+		const { getStatus } = this.props;
+		getStatus();
 	}
 
 	render() {
@@ -23,7 +23,7 @@ class StatusContainer extends Component {
 
 StatusContainer.propTypes = {
 	status: StatusModel.isRequired,
-	fetchStatus: PropTypes.func.isRequired,
+	getStatus: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -31,7 +31,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-	fetchStatus: () => dispatch(getStatusAction()),
+	getStatus: () => dispatch(getStatusAction()),
 });
 
 export { StatusContainer };
