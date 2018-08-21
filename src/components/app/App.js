@@ -6,10 +6,17 @@ import StatusContainer from '../../containers/status';
 
 class App extends Component {
 	render() {
-		return [
-			<StatusContainer key="status"/>,
-			<ScheduleContainer key="schedule"/>,
-		];
+		return (
+			<div className="wrapper">
+				<header>
+					<StatusContainer key="status"/>
+				</header>
+
+				<div className="content">
+					<ScheduleContainer key="schedule"/>
+				</div>
+			</div>
+		);
 	}
 }
 
