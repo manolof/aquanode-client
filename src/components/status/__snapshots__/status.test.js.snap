@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Status should render 1`] = `
+Array [
+  <div
+    className="status-container"
+>
+    <div
+        className="server-time"
+    >
+        <strong>
+            Server time: 
+        </strong>
+        Oct 23, 00:00:00
+    </div>
+    <div
+        className="statuses"
+    >
+        <span>
+            lights
+            : 
+            <strong>
+                night
+            </strong>
+             
+        </span>
+    </div>
+</div>,
+]
+`;
