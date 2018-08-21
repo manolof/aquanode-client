@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { createGetScheduleAction } from '../../actions/schedule';
+import { createGetScheduleAction, resetScheduleAction, setScheduleAction } from '../../actions/schedule';
 import Schedule from '../../components/schedule';
 import { ScheduleModel } from '../../models/schedule';
 
@@ -13,10 +13,10 @@ class ScheduleContainer extends Component {
 	}
 
 	render() {
-		const { schedule } = this.props;
+		const { schedule, setSchedule, resetSchedule } = this.props;
 
 		return (
-			<Schedule schedule={schedule}/>
+			<Schedule schedule={schedule} resetSchedule={resetSchedule} setSchedule={setSchedule}/>
 		);
 	}
 }
@@ -24,6 +24,8 @@ class ScheduleContainer extends Component {
 ScheduleContainer.propTypes = {
 	schedule: ScheduleModel.isRequired,
 	fetchSchedule: PropTypes.func.isRequired,
+	setSchedule: PropTypes.func.isRequired,
+	resetSchedule: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -32,6 +34,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
 	fetchSchedule: () => dispatch(createGetScheduleAction()),
+	setSchedule: (value) => dispatch(setScheduleAction(value)),
+	resetSchedule: () => dispatch(resetScheduleAction()),
 });
 
 export { ScheduleContainer };
