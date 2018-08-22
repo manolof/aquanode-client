@@ -6,16 +6,41 @@ import './schedule.css';
 import { ScheduleModel } from '../../models/schedule';
 
 class Schedule extends Component {
-	resetSchedule() {
-		this.props.resetSchedule();
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			overrideMode: false,
+		};
 	}
 
-	setSchedule(v) {
-		this.props.setSchedule(v);
+	componentWillReceiveProps(nextProps) {
+		const schedule = nextProps.schedule;
+
+		if (schedule && !schedule.length) {
+			this.setState({
+				overrideMode: true,
+			});
+		}
+	}
+
+	resetSchedule() {
+		this.props.resetSchedule();
+		this.setState({
+			overrideMode: false,
+		});
+	}
+
+	setSchedule(value) {
+		this.props.setSchedule(value);
+		this.setState({
+			overrideMode: true,
+		});
 	}
 
 	render() {
 		const { schedule } = this.props;
+		const { overrideMode } = this.state;
 
 		return (
 			<div className="panel">
@@ -23,11 +48,12 @@ class Schedule extends Component {
 
 				<div className="panel__content">
 					{
-						schedule.map((scheduleItem) =>
-							<p key={scheduleItem.job_next_run}>
-								<strong>"{scheduleItem.job_name}"</strong> {moment(scheduleItem.job_next_run).format('MMM DD, HH:mm')}
-							</p>,
-						)
+						overrideMode ? <p>In override mode</p> :
+							schedule.map((scheduleItem) =>
+								<p key={scheduleItem.job_next_run}>
+									<strong>"{scheduleItem.job_name}"</strong> {moment(scheduleItem.job_next_run).format('MMM DD, HH:mm')}
+								</p>,
+							)
 					}
 				</div>
 
