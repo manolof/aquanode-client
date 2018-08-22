@@ -5,9 +5,19 @@ import Status from './status';
 
 describe('Status', () => {
 	it('should render', () => {
-		const mockProps = { time: '2018-10-23', entities: [{ type: 'lights', status: 'night' }] };
+		const mockStatusProps = {
+			time: '2018-10-23',
+			entities: [
+				{
+					type: 'lights',
+					status: 'night',
+				},
+			],
+		};
 
-		const wrapper = shallow(<Status status={mockProps}/>);
+		const wrapper = shallow(
+			<Status status={mockStatusProps}/>,
+		);
 
 		expect(wrapper.getElements()).toMatchSnapshot();
 	});
