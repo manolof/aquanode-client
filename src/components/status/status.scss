@@ -1,9 +1,6 @@
 @import '../../styles/shared.scss';
 
-.status-container {
+.container {
 	display: flex;
 	justify-content: space-between;
-	background-color: $color-white;
-	box-shadow: 1px 2px 3px rgba($color-black, .1);
-	padding: $spacing-m;
 }

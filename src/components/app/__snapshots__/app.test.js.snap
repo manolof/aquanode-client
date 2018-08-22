@@ -3,13 +3,15 @@
 exports[`App should render 1`] = `
 Array [
   <div
-    className="wrapper"
+    className="app"
 >
-    <header>
+    <header
+        className="app-header"
+    >
         <Connect(StatusContainer) />
     </header>
     <div
-        className="content"
+        className="app-content container"
     >
         <Connect(ScheduleContainer) />
     </div>

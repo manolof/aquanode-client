@@ -7,12 +7,12 @@ import StatusContainer from '../../containers/status/status';
 class App extends Component {
 	render() {
 		return (
-			<div className="wrapper">
-				<header>
+			<div className="app">
+				<header className="app-header">
 					<StatusContainer key="status"/>
 				</header>
 
-				<div className="content">
+				<div className="app-content container">
 					<ScheduleContainer key="schedule"/>
 				</div>
 			</div>

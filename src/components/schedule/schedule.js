@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import moment from 'moment';
 
+import './schedule.css';
 import { ScheduleModel } from '../../models/schedule';
 
 class Schedule extends Component {
@@ -32,8 +33,8 @@ class Schedule extends Component {
 
 				<footer className="panel__footer">
 					<button onClick={() => this.resetSchedule()}>RESET</button>
-					<button onClick={() => this.setSchedule('day')}>SET DAY</button>
-					<button onClick={() => this.setSchedule('night')}>SET NIGHT</button>
+					<button className="day" onClick={() => this.setSchedule('day')}>SET DAY</button>
+					<button className="night" onClick={() => this.setSchedule('night')}>SET NIGHT</button>
 				</footer>
 			</div>
 		);

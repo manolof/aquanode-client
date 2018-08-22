@@ -1,9 +1,15 @@
 @import '../../styles/shared.scss';
 
-.wrapper {
+.app {
 	background-color: $color-gray--lighter;
 }
 
-.content {
+.app-header {
+	box-shadow: 1px 2px 3px rgba($color-black, .1);
+	background-color: $color-white;
+	margin-bottom: $spacing-m;
 	padding: $spacing-m;
+}
+
+.app-content {
 }

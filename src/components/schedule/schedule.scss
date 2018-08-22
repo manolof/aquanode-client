@@ -1,0 +1,18 @@
+@import '../../styles/shared.scss';
+
+.panel__footer {
+	display: flex;
+}
+
+button {
+	margin-right: $spacing-l;
+
+	&.day {
+		background-color: $color-warning;
+	}
+
+	&.night {
+		background-color: $color-purple;
+		color: $color-white;
+	}
+}

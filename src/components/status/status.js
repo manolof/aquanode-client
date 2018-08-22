@@ -9,7 +9,7 @@ class Status extends Component {
 		const { status } = this.props;
 
 		return (
-			<div className="status-container">
+			<div className="container">
 				<div className="server-time">
 					<strong>Server time:&nbsp;</strong>
 					{moment(status.time).format('MMM DD, HH:mm:ss')}

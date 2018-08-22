@@ -32,11 +32,13 @@ Array [
             RESET
         </button>
         <button
+            className="day"
             onClick={[Function]}
         >
             SET DAY
         </button>
         <button
+            className="night"
             onClick={[Function]}
         >
             SET NIGHT
