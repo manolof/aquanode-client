@@ -17,9 +17,9 @@ class Status extends Component {
 
 				<div className="statuses">
 					{
-						status.entities.map((entity) =>
+						status.entities.map((entity, index) =>
 							entity.status &&
-							<span key={entity.type}>
+							<span key={index}>
 								{entity.type}: <strong>{entity.status}</strong>&nbsp;
 							</span>,
 						)

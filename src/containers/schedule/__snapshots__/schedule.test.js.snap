@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Schedule Container should render 1`] = `
+Array [
+  <Schedule
+    resetSchedule={[Function]}
+    schedule={
+        Array [
+            Object {
+              "job_name": "night-17:0",
+              "job_next_run": "2018-08-23T15:00:00.000Z",
+            },
+          ]
+    }
+    setSchedule={[Function]}
+/>,
+]
+`;

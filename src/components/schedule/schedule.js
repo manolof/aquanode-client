@@ -49,8 +49,8 @@ class Schedule extends Component {
 				<div className="panel__content">
 					{
 						overrideMode ? <p>In override mode</p> :
-							schedule.map((scheduleItem) =>
-								<p key={scheduleItem.job_next_run}>
+							schedule.map((scheduleItem, index) =>
+								<p key={index}>
 									<strong>"{scheduleItem.job_name}"</strong> {moment(scheduleItem.job_next_run).format('MMM DD, HH:mm')}
 								</p>,
 							)
@@ -58,9 +58,9 @@ class Schedule extends Component {
 				</div>
 
 				<footer className="panel__footer">
-					<button onClick={() => this.resetSchedule()}>RESET</button>
-					<button className="day" onClick={() => this.setSchedule('day')}>SET DAY</button>
-					<button className="night" onClick={() => this.setSchedule('night')}>SET NIGHT</button>
+					<button className="reset" onClick={() => this.resetSchedule()}>RESET</button>
+					<button className="set-day" onClick={() => this.setSchedule('day')}>SET DAY</button>
+					<button className="set-night" onClick={() => this.setSchedule('night')}>SET NIGHT</button>
 				</footer>
 			</div>
 		);

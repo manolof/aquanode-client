@@ -3,7 +3,15 @@ import React from 'react';
 
 import Status from './status';
 
-describe('Status', () => {
+describe('Status Component', () => {
+	afterEach(() => {
+		jest.resetAllMocks();
+	});
+
+	afterAll(() => {
+		jest.restoreAllMocks();
+	});
+
 	it('should render', () => {
 		const mockStatusProps = {
 			time: '2018-10-23',

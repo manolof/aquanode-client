@@ -28,10 +28,12 @@ ScheduleContainer.propTypes = {
 	resetSchedule: PropTypes.func.isRequired,
 };
 
+// istanbul ignore next
 const mapStateToProps = (state) => ({
 	schedule: state.schedule,
 });
 
+// istanbul ignore next
 const mapDispatchToProps = (dispatch) => ({
 	getSchedule: () => dispatch(getScheduleAction()),
 	setSchedule: (value) => dispatch(setScheduleAction(value)),

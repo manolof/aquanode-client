@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Schedule should render 1`] = `
+exports[`Schedule Component should render 1`] = `
 Array [
   <div
     className="panel"
@@ -27,18 +27,19 @@ Array [
         className="panel__footer"
     >
         <button
+            className="reset"
             onClick={[Function]}
         >
             RESET
         </button>
         <button
-            className="day"
+            className="set-day"
             onClick={[Function]}
         >
             SET DAY
         </button>
         <button
-            className="night"
+            className="set-night"
             onClick={[Function]}
         >
             SET NIGHT

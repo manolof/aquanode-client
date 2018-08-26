@@ -26,10 +26,12 @@ StatusContainer.propTypes = {
 	getStatus: PropTypes.func.isRequired,
 };
 
+// istanbul ignore next
 const mapStateToProps = (state) => ({
 	status: state.status,
 });
 
+// istanbul ignore next
 const mapDispatchToProps = (dispatch) => ({
 	getStatus: () => dispatch(getStatusAction()),
 });
