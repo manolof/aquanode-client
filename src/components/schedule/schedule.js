@@ -49,11 +49,13 @@ class Schedule extends Component {
 				<div className="panel__content">
 					{
 						overrideMode ? <p>In override mode</p> :
-							schedule.map((scheduleItem, index) =>
-								<p key={index}>
-									<strong>"{scheduleItem.job_name}"</strong> {moment(scheduleItem.job_next_run).format('MMM DD, HH:mm')}
-								</p>,
-							)
+							schedule
+								.sort((a, b) => a.job_next_run > b.job_next_run)
+								.map((scheduleItem, index) =>
+									<p key={index}>
+										<strong>"{scheduleItem.job_name}"</strong> {moment(scheduleItem.job_next_run).format('MMM DD, HH:mm')}
+									</p>,
+								)
 					}
 				</div>
 
