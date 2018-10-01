@@ -1,6 +1,6 @@
 import { StatusActions } from '../actions/status';
 
-const initialState = {
+export const initialState = {
 	time: '',
 	entities: [],
 };

@@ -6,41 +6,16 @@ import './schedule.css';
 import { ScheduleModel } from '../../models/schedule';
 
 class Schedule extends Component {
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			overrideMode: false,
-		};
-	}
-
-	componentWillReceiveProps(nextProps) {
-		const schedule = nextProps.schedule;
-
-		if (schedule && !schedule.length) {
-			this.setState({
-				overrideMode: true,
-			});
-		}
-	}
-
 	resetSchedule() {
 		this.props.resetSchedule();
-		this.setState({
-			overrideMode: false,
-		});
 	}
 
 	setSchedule(value) {
 		this.props.setSchedule(value);
-		this.setState({
-			overrideMode: true,
-		});
 	}
 
 	render() {
 		const { schedule } = this.props;
-		const { overrideMode } = this.state;
 
 		return (
 			<div className="panel">
@@ -48,8 +23,8 @@ class Schedule extends Component {
 
 				<div className="panel__content">
 					{
-						overrideMode ? <p>In override mode</p> :
-							schedule
+						schedule.override ? <p>In override mode</p> :
+							schedule.items
 								.sort((a, b) => a.job_next_run > b.job_next_run)
 								.map((scheduleItem, index) =>
 									<p key={index}>

@@ -5,12 +5,15 @@ Array [
   <Schedule
     resetSchedule={[Function]}
     schedule={
-        Array [
-            Object {
-              "job_name": "night-17:0",
-              "job_next_run": "2018-08-23T15:00:00.000Z",
-            },
-          ]
+        Object {
+            "items": Array [
+              Object {
+                "job_name": "night-17:0",
+                "job_next_run": "2018-08-23T15:00:00.000Z",
+              },
+            ],
+            "override": false,
+          }
     }
     setSchedule={[Function]}
 />,
