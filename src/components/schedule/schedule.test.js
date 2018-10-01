@@ -12,6 +12,10 @@ describe('Schedule Component', () => {
 			job_name: 'night-17:0',
 			job_next_run: '2018-08-23T15:00:00.000Z',
 		},
+		{
+			job_name: 'day-7:0',
+			job_next_run: '2018-08-23T07:00:00.000Z',
+		},
 	];
 
 	beforeEach(() => {
