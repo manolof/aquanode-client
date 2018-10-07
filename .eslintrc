@@ -12,6 +12,12 @@
 		"eslint:recommended",
 		"plugin:react/recommended"
 	],
+	"settings": {
+		"react": {
+			"pragma": "React",
+			"version": "^16.5.2"
+		}
+	},
 	"parser": "babel-eslint",
 	"parserOptions": {
 		"sourceType": "module",

@@ -8,11 +8,11 @@ import {
 	resetScheduleFailAction,
 	resetScheduleStartAction,
 	resetScheduleSuccessAction,
+	ScheduleActions,
 	setScheduleAction,
 	setScheduleFailAction,
 	setScheduleStartAction,
 	setScheduleSuccessAction,
-	ScheduleActions,
 } from './schedule';
 
 jest.mock('../services/schedule');
@@ -116,7 +116,7 @@ describe('schedule actions', () => {
 			jest.restoreAllMocks();
 		});
 
-		it('should dispatch a success action, if it successfully calls the service', async () => {
+		it('should dispatch a success action, if it successfully calls the service', async() => {
 			getSchedule.mockImplementation(() => Promise.resolve(mockSuccessResponse));
 			await getScheduleAction()(dispatch);
 
@@ -125,7 +125,7 @@ describe('schedule actions', () => {
 			expect(dispatch).toHaveBeenCalledWith(getScheduleSuccessAction(mockSuccessResponse));
 		});
 
-		it('should dispatch a fail action, if it fails to call the service', async () => {
+		it('should dispatch a fail action, if it fails to call the service', async() => {
 			getSchedule.mockImplementation(() => Promise.reject(mockErrorResponse));
 			await getScheduleAction()(dispatch);
 
@@ -150,7 +150,7 @@ describe('schedule actions', () => {
 			jest.restoreAllMocks();
 		});
 
-		it('should dispatch a success action, if it successfully calls the service', async () => {
+		it('should dispatch a success action, if it successfully calls the service', async() => {
 			resetSchedule.mockImplementation(() => Promise.resolve(mockSuccessResponse));
 			await resetScheduleAction()(dispatch);
 
@@ -159,7 +159,7 @@ describe('schedule actions', () => {
 			expect(dispatch).toHaveBeenCalledWith(resetScheduleSuccessAction(mockSuccessResponse));
 		});
 
-		it('should dispatch a fail action, if it fails to call the service', async () => {
+		it('should dispatch a fail action, if it fails to call the service', async() => {
 			resetSchedule.mockImplementation(() => Promise.reject(mockErrorResponse));
 			await resetScheduleAction()(dispatch);
 
@@ -184,7 +184,7 @@ describe('schedule actions', () => {
 			jest.restoreAllMocks();
 		});
 
-		it('should dispatch a success action, if it successfully calls the service', async () => {
+		it('should dispatch a success action, if it successfully calls the service', async() => {
 			setSchedule.mockImplementation(() => Promise.resolve(mockSuccessResponse));
 			await setScheduleAction()(dispatch);
 
@@ -193,7 +193,7 @@ describe('schedule actions', () => {
 			expect(dispatch).toHaveBeenCalledWith(setScheduleSuccessAction(mockSuccessResponse));
 		});
 
-		it('should dispatch a fail action, if it fails to call the service', async () => {
+		it('should dispatch a fail action, if it fails to call the service', async() => {
 			setSchedule.mockImplementation(() => Promise.reject(mockErrorResponse));
 			await setScheduleAction()(dispatch);
 
