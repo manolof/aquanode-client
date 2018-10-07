@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import moment from 'moment';
+import moment from 'moment-timezone';
 
 import './schedule.css';
 import { ScheduleModel } from '../../models/schedule';
@@ -12,6 +12,10 @@ class Schedule extends Component {
 
 	setSchedule(value) {
 		this.props.setSchedule(value);
+	}
+
+	formatDateTime(dateTime) {
+		return moment.tz(dateTime, 'Europe/Zurich').format('MMM DD, HH:mm');
 	}
 
 	render() {
@@ -28,9 +32,11 @@ class Schedule extends Component {
 								.sort((a, b) => a.job_next_run > b.job_next_run)
 								.map((scheduleItem, index) =>
 									<p key={index}>
-										<strong>&quot;{scheduleItem.job_name}&quot;</strong>
+										<strong>
+											&quot;{scheduleItem.job_name}&quot;
+										</strong>
 										&nbsp;
-										{moment(scheduleItem.job_next_run).format('MMM DD, HH:mm')}
+										{this.formatDateTime(scheduleItem.job_next_run)}
 									</p>,
 								)
 					}

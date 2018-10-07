@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
-import moment from 'moment';
+import moment from 'moment-timezone';
 
 import './status.css';
 import { StatusModel } from '../../models/status';
 
 class Status extends Component {
+	formatDateTime(dateTime) {
+		return moment.tz(dateTime, 'Europe/Zurich').format('MMM DD, HH:mm:ss');
+	}
+
 	render() {
 		const { status } = this.props;
 
@@ -12,7 +16,7 @@ class Status extends Component {
 			<div className="container">
 				<div className="server-time">
 					<strong>Server time:&nbsp;</strong>
-					{moment(status.time).format('MMM DD, HH:mm:ss')}
+						{this.formatDateTime(status.time)}
 				</div>
 
 				<div className="statuses">
