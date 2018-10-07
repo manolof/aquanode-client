@@ -60,7 +60,7 @@ describe('status actions', () => {
 			jest.restoreAllMocks();
 		});
 
-		it('should dispatch a success action, if it successfully calls the service', async () => {
+		it('should dispatch a success action, if it successfully calls the service', async() => {
 			getStatus.mockImplementation(() => Promise.resolve(mockSuccessResponse));
 			await getStatusAction()(dispatch);
 
@@ -69,7 +69,7 @@ describe('status actions', () => {
 			expect(dispatch).toHaveBeenCalledWith(getStatusSuccessAction(mockSuccessResponse));
 		});
 
-		it('should dispatch a fail action, if it fails to call the service', async () => {
+		it('should dispatch a fail action, if it fails to call the service', async() => {
 			getStatus.mockImplementation(() => Promise.reject(mockErrorResponse));
 			await getStatusAction()(dispatch);
 

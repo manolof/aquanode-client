@@ -28,7 +28,9 @@ class Schedule extends Component {
 								.sort((a, b) => a.job_next_run > b.job_next_run)
 								.map((scheduleItem, index) =>
 									<p key={index}>
-										<strong>"{scheduleItem.job_name}"</strong> {moment(scheduleItem.job_next_run).format('MMM DD, HH:mm')}
+										<strong>&quot;{scheduleItem.job_name}&quot;</strong>
+										&nbsp;
+										{moment(scheduleItem.job_next_run).format('MMM DD, HH:mm')}
 									</p>,
 								)
 					}

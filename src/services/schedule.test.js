@@ -18,7 +18,7 @@ describe('schedule service', () => {
 	});
 
 	describe('getSchedule()', () => {
-		it('should get the schedule', async () => {
+		it('should get the schedule', async() => {
 			fetchMock.getOnce(
 				'/schedule',
 				mockSchedulePayload,
@@ -29,7 +29,7 @@ describe('schedule service', () => {
 	});
 
 	describe('resetSchedule()', () => {
-		it('should reset the schedule', async () => {
+		it('should reset the schedule', async() => {
 			fetchMock.postOnce(
 				'/schedule/reset',
 				mockSchedulePayload,
@@ -40,7 +40,7 @@ describe('schedule service', () => {
 	});
 
 	describe('setSchedule()', () => {
-		it('should reset the schedule', async () => {
+		it('should reset the schedule', async() => {
 			fetchMock.postOnce(
 				'/schedule',
 				{ data: [] },
