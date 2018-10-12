@@ -18,4 +18,6 @@ const statusReducer = (state = initialState, action) => {
 	}
 };
 
-export default statusReducer;
+export {
+	statusReducer,
+};

@@ -16,7 +16,7 @@ class Status extends Component {
 			<div className="container">
 				<div className="server-time">
 					<strong>Server time:&nbsp;</strong>
-						{this.formatDateTime(status.time)}
+					{this.formatDateTime(status.time)}
 				</div>
 
 				<div className="statuses">
@@ -38,4 +38,6 @@ Status.propTypes = {
 	status: StatusModel.isRequired,
 };
 
-export default Status;
+export {
+	Status,
+};

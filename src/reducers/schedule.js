@@ -27,4 +27,6 @@ const scheduleReducer = (state = initialState, action) => {
 	}
 };
 
-export default scheduleReducer;
+export {
+	scheduleReducer,
+};

@@ -1,23 +1,25 @@
 import React, { Component } from 'react';
 
 import './app.css';
-import ScheduleContainer from '../../containers/schedule/schedule';
-import StatusContainer from '../../containers/status/status';
+import { ScheduleContainerConnect } from '../../containers/schedule/schedule';
+import { StatusContainerConnect } from '../../containers/status/status';
 
 class App extends Component {
 	render() {
 		return (
 			<div className="app">
 				<header className="app-header">
-					<StatusContainer key="status"/>
+					<StatusContainerConnect key="status"/>
 				</header>
 
 				<div className="app-content container">
-					<ScheduleContainer key="schedule"/>
+					<ScheduleContainerConnect key="schedule"/>
 				</div>
 			</div>
 		);
 	}
 }
 
-export default App;
+export {
+	App,
+};

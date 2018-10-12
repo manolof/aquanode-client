@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { getScheduleAction, resetScheduleAction, setScheduleAction } from '../../actions/schedule';
-import Schedule from '../../components/schedule/schedule';
+import { Schedule } from '../../components/schedule/schedule';
 import { ScheduleModel } from '../../models/schedule';
 
 class ScheduleContainer extends Component {
@@ -40,6 +40,9 @@ const mapDispatchToProps = (dispatch) => ({
 	resetSchedule: () => dispatch(resetScheduleAction()),
 });
 
-export { ScheduleContainer };
+const ScheduleContainerConnect = connect(mapStateToProps, mapDispatchToProps)(ScheduleContainer);
 
-export default connect(mapStateToProps, mapDispatchToProps)(ScheduleContainer);
+export {
+	ScheduleContainer,
+	ScheduleContainerConnect,
+};

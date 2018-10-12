@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { getStatusAction } from '../../actions/status';
-import Status from '../../components/status/status';
+import { Status } from '../../components/status/status';
 import { StatusModel } from '../../models/status';
 
 class StatusContainer extends Component {
@@ -36,6 +36,9 @@ const mapDispatchToProps = (dispatch) => ({
 	getStatus: () => dispatch(getStatusAction()),
 });
 
-export { StatusContainer };
+const StatusContainerConnect = connect(mapStateToProps, mapDispatchToProps)(StatusContainer);
 
-export default connect(mapStateToProps, mapDispatchToProps)(StatusContainer);
+export {
+	StatusContainer,
+	StatusContainerConnect,
+};
