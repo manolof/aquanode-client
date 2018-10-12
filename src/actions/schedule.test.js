@@ -108,14 +108,6 @@ describe('schedule actions', () => {
 			dispatch = jest.fn();
 		});
 
-		afterEach(() => {
-			jest.resetAllMocks();
-		});
-
-		afterAll(() => {
-			jest.restoreAllMocks();
-		});
-
 		it('should dispatch a success action, if it successfully calls the service', async() => {
 			getSchedule.mockImplementation(() => Promise.resolve(mockSuccessResponse));
 			await getScheduleAction()(dispatch);
@@ -142,14 +134,6 @@ describe('schedule actions', () => {
 			dispatch = jest.fn();
 		});
 
-		afterEach(() => {
-			jest.resetAllMocks();
-		});
-
-		afterAll(() => {
-			jest.restoreAllMocks();
-		});
-
 		it('should dispatch a success action, if it successfully calls the service', async() => {
 			resetSchedule.mockImplementation(() => Promise.resolve(mockSuccessResponse));
 			await resetScheduleAction()(dispatch);
@@ -174,14 +158,6 @@ describe('schedule actions', () => {
 
 		beforeAll(() => {
 			dispatch = jest.fn();
-		});
-
-		afterEach(() => {
-			jest.resetAllMocks();
-		});
-
-		afterAll(() => {
-			jest.restoreAllMocks();
 		});
 
 		it('should dispatch a success action, if it successfully calls the service', async() => {
