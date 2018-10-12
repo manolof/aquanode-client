@@ -41,5 +41,14 @@
     "redux-devtools-extension": "^2.13.5",
     "redux-thunk": "^2.3.0"
   },
-  "proxy": "http://localhost:3003/api"
+  "proxy": "http://localhost:3003/api",
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!/node_modules/",
+      "!src/index.js",
+      "!src/registerServiceWorker.js",
+      "!src/setupTests.js.js"
+    ]
+  }
 }
