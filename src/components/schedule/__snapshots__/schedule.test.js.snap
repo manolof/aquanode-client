@@ -57,3 +57,46 @@ Array [
 </div>,
 ]
 `;
+
+exports[`Schedule Component should render in override mode 1`] = `
+Array [
+  <div
+    className="panel"
+>
+    <header
+        className="panel__header"
+    >
+        Schedule
+    </header>
+    <div
+        className="panel__content"
+    >
+        <p>
+            In override mode
+        </p>
+    </div>
+    <footer
+        className="panel__footer"
+    >
+        <button
+            className="reset"
+            onClick={[Function]}
+        >
+            RESET
+        </button>
+        <button
+            className="set-day"
+            onClick={[Function]}
+        >
+            SET DAY
+        </button>
+        <button
+            className="set-night"
+            onClick={[Function]}
+        >
+            SET NIGHT
+        </button>
+    </footer>
+</div>,
+]
+`;
