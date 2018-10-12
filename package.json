@@ -46,9 +46,7 @@
     "collectCoverageFrom": [
       "src/**/*.js",
       "!/node_modules/",
-      "!src/index.js",
-      "!src/registerServiceWorker.js",
-      "!src/setupTests.js.js"
+      "!src/*.js"
     ]
   }
 }
