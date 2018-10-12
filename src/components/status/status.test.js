@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 
-import Status from './status';
+import { Status } from './status';
 
 describe('Status Component', () => {
 	afterEach(() => {

@@ -1,4 +1,4 @@
-import reducer, { initialState } from './status';
+import { initialState, statusReducer } from './status';
 import { StatusActions } from '../actions/status';
 
 const mockStatusPayload = {
@@ -13,12 +13,12 @@ const mockStatusPayload = {
 
 describe('Status reducer', () => {
 	it('should return the initial state', () => {
-		expect(reducer(undefined, {})).toEqual(initialState);
+		expect(statusReducer(undefined, {})).toEqual(initialState);
 	});
 
 	it('should handle GET_SUCCESS', () => {
 		expect(
-			reducer({}, {
+			statusReducer({}, {
 				type: StatusActions.GET_SUCCESS,
 				payload: mockStatusPayload,
 			}),
@@ -29,7 +29,7 @@ describe('Status reducer', () => {
 		};
 
 		expect(
-			reducer(mockStatusPayload, {
+			statusReducer(mockStatusPayload, {
 				type: StatusActions.GET_SUCCESS,
 				payload: mockStatusPayloadNew,
 			}),

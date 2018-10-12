@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 
-import Schedule from './schedule';
+import { Schedule } from './schedule';
 
 describe('Schedule Component', () => {
 	let wrapper;

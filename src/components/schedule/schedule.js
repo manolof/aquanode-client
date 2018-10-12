@@ -58,4 +58,6 @@ Schedule.propTypes = {
 	setSchedule: PropTypes.func.isRequired,
 };
 
-export default Schedule;
+export {
+	Schedule,
+};

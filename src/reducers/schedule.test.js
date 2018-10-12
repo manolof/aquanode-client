@@ -1,4 +1,4 @@
-import reducer, { initialState } from './schedule';
+import { initialState, scheduleReducer } from './schedule';
 import { ScheduleActions } from '../actions/schedule';
 
 const mockSchedulePayload = [
@@ -10,12 +10,12 @@ const mockSchedulePayload = [
 
 describe('Schedule reducer', () => {
 	it('should return the initial state', () => {
-		expect(reducer(undefined, {})).toEqual(initialState);
+		expect(scheduleReducer(undefined, {})).toEqual(initialState);
 	});
 
 	it('should handle GET_SUCCESS, RESET_SUCCESS', () => {
 		expect(
-			reducer(initialState, {
+			scheduleReducer(initialState, {
 				type: ScheduleActions.GET_SUCCESS,
 				payload: mockSchedulePayload,
 			}),
@@ -25,7 +25,7 @@ describe('Schedule reducer', () => {
 		});
 
 		expect(
-			reducer(initialState, {
+			scheduleReducer(initialState, {
 				type: ScheduleActions.RESET_SUCCESS,
 				payload: mockSchedulePayload,
 			}),
@@ -37,7 +37,7 @@ describe('Schedule reducer', () => {
 
 	it('should handle SET_SUCCESS', () => {
 		expect(
-			reducer(initialState, {
+			scheduleReducer(initialState, {
 				type: ScheduleActions.SET_SUCCESS,
 				payload: mockSchedulePayload,
 			}),
