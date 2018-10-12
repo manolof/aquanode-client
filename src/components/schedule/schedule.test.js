@@ -4,7 +4,6 @@ import React from 'react';
 import { Schedule } from './schedule';
 
 describe('Schedule Component', () => {
-	let wrapper;
 	const resetScheduleSpy = jest.fn();
 	const setScheduleSpy = jest.fn();
 	const mockScheduleProps = {
@@ -21,12 +20,6 @@ describe('Schedule Component', () => {
 		],
 	};
 
-	beforeEach(() => {
-		wrapper = shallow(
-			<Schedule schedule={mockScheduleProps} resetSchedule={resetScheduleSpy} setSchedule={setScheduleSpy}/>,
-		);
-	});
-
 	afterEach(() => {
 		jest.resetAllMocks();
 	});
@@ -36,6 +29,42 @@ describe('Schedule Component', () => {
 	});
 
 	it('should render', () => {
+		const wrapper = shallow(
+			<Schedule schedule={mockScheduleProps} resetSchedule={resetScheduleSpy} setSchedule={setScheduleSpy}/>,
+		);
+
+		expect(wrapper.getElements()).toMatchSnapshot();
+	});
+
+	it('should have functioning buttons that modify the schedule', () => {
+		const wrapper = shallow(
+			<Schedule schedule={mockScheduleProps} resetSchedule={resetScheduleSpy} setSchedule={setScheduleSpy}/>,
+		);
+
+		expect(resetScheduleSpy).not.toHaveBeenCalled();
+		wrapper.find('.reset').simulate('click');
+		expect(resetScheduleSpy).toHaveBeenCalled();
+
+		expect(setScheduleSpy).not.toHaveBeenCalled();
+		wrapper.find('.set-day').simulate('click');
+		expect(setScheduleSpy).toHaveBeenCalledTimes(1);
+		expect(setScheduleSpy).toHaveBeenCalledWith('day');
+
+		wrapper.find('.set-night').simulate('click');
+		expect(setScheduleSpy).toHaveBeenCalledTimes(2);
+		expect(setScheduleSpy).toHaveBeenCalledWith('night');
+	});
+
+	it('should render in override mode', () => {
+		const mockSchedulePropsOverride = {
+			...mockScheduleProps,
+			override: true,
+		};
+
+		const wrapper = shallow(
+			<Schedule schedule={mockSchedulePropsOverride} resetSchedule={resetScheduleSpy} setSchedule={setScheduleSpy}/>,
+		);
+
 		expect(wrapper.getElements()).toMatchSnapshot();
 	});
 
