@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './app.css';
+import './app.scss';
 import { ScheduleContainerConnect } from '../../containers/schedule/schedule';
 import { StatusContainerConnect } from '../../containers/status/status';
 

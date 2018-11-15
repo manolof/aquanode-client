@@ -4,8 +4,8 @@ import { statusReducer } from './status';
 import { scheduleReducer } from './schedule';
 
 const rootReducer = combineReducers({
-	statusReducer,
-	scheduleReducer,
+	status: statusReducer,
+	schedule: scheduleReducer,
 });
 
 export {

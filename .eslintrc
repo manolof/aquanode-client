@@ -10,7 +10,9 @@
 	},
 	"extends": [
 		"eslint:recommended",
-		"plugin:react/recommended"
+		"plugin:react/recommended",
+		"plugin:import/errors",
+		"plugin:import/warnings"
 	],
 	"settings": {
 		"react": {
@@ -28,7 +30,8 @@
 	},
 	"plugins": [
 		"react",
-		"jest"
+		"jest",
+		"import"
 	],
 	"rules": {
 		"arrow-spacing": [2,{"before":true,"after":true}],
@@ -36,6 +39,7 @@
 		"comma-dangle": [1,"always-multiline"],
 		"comma-spacing": [2,{"before":false,"after":true}],
 		"curly": [2,"all"],
+		"import/no-default-export": 2,
 		"indent": [2,"tab",{"SwitchCase":1}],
 		"linebreak-style": [2,"unix"],
 		"lines-around-comment": [1,{"beforeBlockComment":true,"beforeLineComment":true,"allowBlockStart":true}],
