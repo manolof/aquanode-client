@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import moment from 'moment-timezone';
 
-import './schedule.css';
+import './schedule.scss';
 import { ScheduleModel } from '../../models/schedule';
 
 class Schedule extends Component {

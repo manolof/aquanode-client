@@ -19,9 +19,6 @@
 .env.test.local
 .env.production.local
 
-# CSS files as these will be compiled from scss files
-src/**/*.css
-
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

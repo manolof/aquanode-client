@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment-timezone';
 
-import './status.css';
+import './status.scss';
 import { StatusModel } from '../../models/status';
 
 class Status extends Component {
