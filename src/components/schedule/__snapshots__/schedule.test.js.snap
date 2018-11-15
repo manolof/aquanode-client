@@ -4,57 +4,57 @@ exports[`Schedule Component should render 1`] = `
 Array [
   <div
     className="panel"
->
+  >
     <header
-        className="panel__header"
+      className="panel__header"
     >
-        Schedule
+      Schedule
     </header>
     <div
-        className="panel__content"
+      className="panel__content"
     >
-        <p>
-            <strong>
-                "
-                day-7:0
-                "
-            </strong>
-             
-            Aug 23, 09:00
-        </p>
-        <p>
-            <strong>
-                "
-                night-17:0
-                "
-            </strong>
-             
-            Aug 23, 17:00
-        </p>
+      <p>
+        <strong>
+          "
+          day-7:0
+          "
+        </strong>
+         
+        Aug 23, 09:00
+      </p>
+      <p>
+        <strong>
+          "
+          night-17:0
+          "
+        </strong>
+         
+        Aug 23, 17:00
+      </p>
     </div>
     <footer
-        className="panel__footer"
+      className="panel__footer"
     >
-        <button
-            className="reset"
-            onClick={[Function]}
-        >
-            RESET
-        </button>
-        <button
-            className="set-day"
-            onClick={[Function]}
-        >
-            SET DAY
-        </button>
-        <button
-            className="set-night"
-            onClick={[Function]}
-        >
-            SET NIGHT
-        </button>
+      <button
+        className="reset"
+        onClick={[Function]}
+      >
+        RESET
+      </button>
+      <button
+        className="set-day"
+        onClick={[Function]}
+      >
+        SET DAY
+      </button>
+      <button
+        className="set-night"
+        onClick={[Function]}
+      >
+        SET NIGHT
+      </button>
     </footer>
-</div>,
+  </div>,
 ]
 `;
 
@@ -62,41 +62,41 @@ exports[`Schedule Component should render in override mode 1`] = `
 Array [
   <div
     className="panel"
->
+  >
     <header
-        className="panel__header"
+      className="panel__header"
     >
-        Schedule
+      Schedule
     </header>
     <div
-        className="panel__content"
+      className="panel__content"
     >
-        <p>
-            In override mode
-        </p>
+      <p>
+        In override mode
+      </p>
     </div>
     <footer
-        className="panel__footer"
+      className="panel__footer"
     >
-        <button
-            className="reset"
-            onClick={[Function]}
-        >
-            RESET
-        </button>
-        <button
-            className="set-day"
-            onClick={[Function]}
-        >
-            SET DAY
-        </button>
-        <button
-            className="set-night"
-            onClick={[Function]}
-        >
-            SET NIGHT
-        </button>
+      <button
+        className="reset"
+        onClick={[Function]}
+      >
+        RESET
+      </button>
+      <button
+        className="set-day"
+        onClick={[Function]}
+      >
+        SET DAY
+      </button>
+      <button
+        className="set-night"
+        onClick={[Function]}
+      >
+        SET NIGHT
+      </button>
     </footer>
-</div>,
+  </div>,
 ]
 `;

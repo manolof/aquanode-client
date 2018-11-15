@@ -3,19 +3,19 @@
 exports[`Schedule Container should render 1`] = `
 Array [
   <Schedule
-    resetSchedule={[Function]}
+    resetSchedule={[MockFunction]}
     schedule={
-        Object {
-            "items": Array [
-              Object {
-                "job_name": "night-17:0",
-                "job_next_run": "2018-08-23T15:00:00.000Z",
-              },
-            ],
-            "override": false,
-          }
+      Object {
+        "items": Array [
+          Object {
+            "job_name": "night-17:0",
+            "job_next_run": "2018-08-23T15:00:00.000Z",
+          },
+        ],
+        "override": false,
+      }
     }
-    setSchedule={[Function]}
-/>,
+    setSchedule={[MockFunction]}
+  />,
 ]
 `;
