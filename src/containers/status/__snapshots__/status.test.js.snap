@@ -4,16 +4,16 @@ exports[`Status Container should render 1`] = `
 Array [
   <Status
     status={
-        Object {
-            "entities": Array [
-              Object {
-                "status": "night",
-                "type": "lights",
-              },
-            ],
-            "time": "2018-10-23",
-          }
+      Object {
+        "entities": Array [
+          Object {
+            "status": "night",
+            "type": "lights",
+          },
+        ],
+        "time": "2018-10-23",
+      }
     }
-/>,
+  />,
 ]
 `;

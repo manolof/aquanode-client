@@ -4,17 +4,17 @@ exports[`App Component should render 1`] = `
 Array [
   <div
     className="app"
->
+  >
     <header
-        className="app-header"
+      className="app-header"
     >
-        <Connect(StatusContainer) />
+      <Connect(StatusContainer) />
     </header>
     <div
-        className="app-content container"
+      className="app-content container"
     >
-        <Connect(ScheduleContainer) />
+      <Connect(ScheduleContainer) />
     </div>
-</div>,
+  </div>,
 ]
 `;
