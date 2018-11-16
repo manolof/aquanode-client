@@ -1,4 +1,5 @@
 import { getSchedule, resetSchedule, setSchedule } from '../services/schedule';
+import { getStatusAction } from './status';
 
 export const ScheduleActions = Object.freeze({
 	GET_START: '[Schedule] GET Start',
@@ -53,7 +54,10 @@ export const resetScheduleAction = () => (dispatch) => {
 	dispatch(resetScheduleStartAction());
 
 	return resetSchedule()
-		.then((data) => dispatch(resetScheduleSuccessAction(data)))
+		.then((data) => {
+			dispatch(resetScheduleSuccessAction(data));
+			dispatch(getStatusAction());
+		})
 		.catch((err) => dispatch(resetScheduleFailAction(err)));
 
 };
@@ -76,7 +80,10 @@ export const setScheduleAction = (value) => (dispatch) => {
 	dispatch(setScheduleStartAction());
 
 	return setSchedule(value)
-		.then((data) => dispatch(setScheduleSuccessAction(data)))
+		.then((data) => {
+			dispatch(setScheduleSuccessAction(data));
+			dispatch(getStatusAction());
+		})
 		.catch((err) => dispatch(setScheduleFailAction(err)));
 
 };

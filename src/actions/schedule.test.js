@@ -14,8 +14,12 @@ import {
 	setScheduleStartAction,
 	setScheduleSuccessAction,
 } from './schedule';
+import { getStatusAction } from './status';
 
 jest.mock('../services/schedule');
+jest.mock('./status', () => ({
+	getStatusAction: jest.fn(),
+}));
 
 describe('schedule actions', () => {
 	const mockSuccessResponse = { data: { res: 'test' } };
@@ -138,9 +142,10 @@ describe('schedule actions', () => {
 			resetSchedule.mockImplementation(() => Promise.resolve(mockSuccessResponse));
 			await resetScheduleAction()(dispatch);
 
-			expect(dispatch).toHaveBeenCalledTimes(2);
+			expect(dispatch).toHaveBeenCalledTimes(3);
 			expect(dispatch).toHaveBeenCalledWith(resetScheduleStartAction());
 			expect(dispatch).toHaveBeenCalledWith(resetScheduleSuccessAction(mockSuccessResponse));
+			expect(dispatch).toHaveBeenCalledWith(getStatusAction());
 		});
 
 		it('should dispatch a fail action, if it fails to call the service', async() => {
@@ -164,9 +169,10 @@ describe('schedule actions', () => {
 			setSchedule.mockImplementation(() => Promise.resolve(mockSuccessResponse));
 			await setScheduleAction()(dispatch);
 
-			expect(dispatch).toHaveBeenCalledTimes(2);
+			expect(dispatch).toHaveBeenCalledTimes(3);
 			expect(dispatch).toHaveBeenCalledWith(setScheduleStartAction());
 			expect(dispatch).toHaveBeenCalledWith(setScheduleSuccessAction(mockSuccessResponse));
+			expect(dispatch).toHaveBeenCalledWith(getStatusAction());
 		});
 
 		it('should dispatch a fail action, if it fails to call the service', async() => {
