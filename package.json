@@ -36,10 +36,11 @@
     "react-scripts": "^2.1.1",
     "redux": "^4.0.0",
     "redux-devtools-extension": "^2.13.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "socket.io-client": "^2.1.1"
   },
   "devDependencies": {},
-  "proxy": "http://localhost:3003/api",
+  "proxy": "http://localhost:3003",
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.js",
