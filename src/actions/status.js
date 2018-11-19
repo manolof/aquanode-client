@@ -1,30 +1,16 @@
-import { getStatus } from '../services/status';
+import { connect } from 'socket.io-client';
+
+const socket = connect('/status');
 
 export const StatusActions = Object.freeze({
-	GET_START: '[Status] GET Start',
-	GET_SUCCESS: '[Status] GET Success',
-	GET_FAIL: '[Status] GET Fail',
-});
-
-export const getStatusStartAction = () => ({
-	type: StatusActions.GET_START,
-});
-
-export const getStatusSuccessAction = (payload) => ({
-	type: StatusActions.GET_SUCCESS,
-	payload,
-});
-
-export const getStatusFailAction = (error) => ({
-	type: StatusActions.GET_FAIL,
-	error,
+	GET: '[Status] GET',
 });
 
 export const getStatusAction = () => (dispatch) => {
-	dispatch(getStatusStartAction());
-
-	return getStatus()
-		.then((data) => dispatch(getStatusSuccessAction(data)))
-		.catch((err) => dispatch(getStatusFailAction(err)));
-
+	socket.on('get', (message) => {
+		dispatch({
+			type: StatusActions.GET,
+			payload: message.data,
+		});
+	});
 };

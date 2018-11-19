@@ -1,89 +1,34 @@
-import { getSchedule, resetSchedule, setSchedule } from '../services/schedule';
-import { getStatusAction } from './status';
+import { connect } from 'socket.io-client';
+
+const socket = connect('/schedule');
 
 export const ScheduleActions = Object.freeze({
-	GET_START: '[Schedule] GET Start',
-	GET_SUCCESS: '[Schedule] GET Success',
-	GET_FAIL: '[Schedule] GET Fail',
-	RESET_START: '[Schedule] RESET Start',
-	RESET_SUCCESS: '[Schedule] RESET Success',
-	RESET_FAIL: '[Schedule] RESET Fail',
-	SET_START: '[Schedule] SET Start',
-	SET_SUCCESS: '[Schedule] SET Success',
-	SET_FAIL: '[Schedule] SET Fail',
-});
-
-export const getScheduleStartAction = () => ({
-	type: ScheduleActions.GET_START,
-});
-
-export const getScheduleSuccessAction = (payload) => ({
-	type: ScheduleActions.GET_SUCCESS,
-	payload,
-});
-
-export const getScheduleFailAction = (error) => ({
-	type: ScheduleActions.GET_FAIL,
-	error,
+	GET: '[Schedule] GET',
+	RESET: '[Schedule] RESET',
+	SET: '[Schedule] SET',
 });
 
 export const getScheduleAction = () => (dispatch) => {
-	dispatch(getScheduleStartAction());
-
-	return getSchedule()
-		.then((data) => dispatch(getScheduleSuccessAction(data)))
-		.catch((err) => dispatch(getScheduleFailAction(err)));
-
+	socket.on('get', (message) => {
+		dispatch({
+			type: ScheduleActions.GET,
+			payload: message.data,
+		});
+	});
 };
-
-export const resetScheduleStartAction = () => ({
-	type: ScheduleActions.RESET_START,
-});
-
-export const resetScheduleSuccessAction = (payload) => ({
-	type: ScheduleActions.RESET_SUCCESS,
-	payload,
-});
-
-export const resetScheduleFailAction = (error) => ({
-	type: ScheduleActions.RESET_FAIL,
-	error,
-});
 
 export const resetScheduleAction = () => (dispatch) => {
-	dispatch(resetScheduleStartAction());
+	socket.emit('reset');
 
-	return resetSchedule()
-		.then((data) => {
-			dispatch(resetScheduleSuccessAction(data));
-			dispatch(getStatusAction());
-		})
-		.catch((err) => dispatch(resetScheduleFailAction(err)));
-
+	dispatch({
+		type: ScheduleActions.RESET,
+	});
 };
 
-export const setScheduleStartAction = () => ({
-	type: ScheduleActions.SET_START,
-});
-
-export const setScheduleSuccessAction = (payload) => ({
-	type: ScheduleActions.SET_SUCCESS,
-	payload,
-});
-
-export const setScheduleFailAction = (error) => ({
-	type: ScheduleActions.SET_FAIL,
-	error,
-});
-
 export const setScheduleAction = (value) => (dispatch) => {
-	dispatch(setScheduleStartAction());
+	socket.emit('set', value);
 
-	return setSchedule(value)
-		.then((data) => {
-			dispatch(setScheduleSuccessAction(data));
-			dispatch(getStatusAction());
-		})
-		.catch((err) => dispatch(setScheduleFailAction(err)));
-
+	dispatch({
+		type: ScheduleActions.SET,
+	});
 };
