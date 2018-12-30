@@ -19,7 +19,7 @@ describe('Status reducer', () => {
 	it('should handle GET_SUCCESS', () => {
 		expect(
 			statusReducer({}, {
-				type: StatusActions.GET_SUCCESS,
+				type: StatusActions.GET,
 				payload: mockStatusPayload,
 			}),
 		).toEqual(mockStatusPayload);
@@ -30,7 +30,7 @@ describe('Status reducer', () => {
 
 		expect(
 			statusReducer(mockStatusPayload, {
-				type: StatusActions.GET_SUCCESS,
+				type: StatusActions.GET,
 				payload: mockStatusPayloadNew,
 			}),
 		).toEqual({

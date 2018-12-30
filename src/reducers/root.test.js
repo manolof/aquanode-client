@@ -1,7 +1,7 @@
 import { createStore } from 'redux';
 
-import { getScheduleStartAction } from '../actions/schedule';
-import { getStatusStartAction } from '../actions/status';
+import { ScheduleActions } from '../actions/schedule';
+import { StatusActions } from '../actions/status';
 import { rootReducer } from './root';
 import { scheduleReducer } from './schedule';
 import { statusReducer } from './status';
@@ -16,11 +16,17 @@ describe('rootReducer', () => {
 	});
 
 	it(`should check that child reducers handle an action`, () => {
-		const action1 = getStatusStartAction();
+		const action1 = {
+			type: StatusActions.GET,
+			payload: { data: 'test' },
+		};
 		store.dispatch(action1);
 		expect(store.getState().status).toEqual(statusReducer(undefined, action1));
 
-		const action2 = getScheduleStartAction();
+		const action2 = {
+			type: ScheduleActions.GET,
+			payload: { data: 'test' },
+		};
 		store.dispatch(action2);
 		expect(store.getState().schedule).toEqual(scheduleReducer(undefined, action2));
 	});
