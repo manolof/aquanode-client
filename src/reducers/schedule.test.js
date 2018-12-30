@@ -16,7 +16,7 @@ describe('Schedule reducer', () => {
 	it('should handle GET_SUCCESS, RESET_SUCCESS', () => {
 		expect(
 			scheduleReducer(initialState, {
-				type: ScheduleActions.GET_SUCCESS,
+				type: ScheduleActions.GET,
 				payload: mockSchedulePayload,
 			}),
 		).toEqual({
@@ -26,20 +26,17 @@ describe('Schedule reducer', () => {
 
 		expect(
 			scheduleReducer(initialState, {
-				type: ScheduleActions.RESET_SUCCESS,
-				payload: mockSchedulePayload,
+				type: ScheduleActions.RESET,
 			}),
 		).toEqual({
 			...initialState,
-			items: mockSchedulePayload,
 		});
 	});
 
 	it('should handle SET_SUCCESS', () => {
 		expect(
 			scheduleReducer(initialState, {
-				type: ScheduleActions.SET_SUCCESS,
-				payload: mockSchedulePayload,
+				type: ScheduleActions.SET,
 			}),
 		).toEqual({
 			...initialState,
