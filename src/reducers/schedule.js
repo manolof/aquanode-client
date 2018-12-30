@@ -9,16 +9,22 @@ const scheduleReducer = (state = initialState, action) => {
 	const items = action.payload;
 
 	switch (action.type) {
-		case ScheduleActions.GET_SUCCESS:
-		case ScheduleActions.RESET_SUCCESS:
+		case ScheduleActions.GET:
 			return {
-				...initialState,
+				...state,
 				items,
+				override: !items.length,
 			};
 
-		case ScheduleActions.SET_SUCCESS:
+		case ScheduleActions.RESET:
 			return {
-				...initialState,
+				...state,
+				override: false,
+			};
+
+		case ScheduleActions.SET:
+			return {
+				...state,
 				override: true,
 			};
 

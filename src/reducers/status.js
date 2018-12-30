@@ -7,7 +7,7 @@ export const initialState = {
 
 const statusReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case StatusActions.GET_SUCCESS:
+		case StatusActions.GET:
 			return {
 				...state,
 				...action.payload,
