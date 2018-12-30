@@ -1,6 +1,6 @@
 import { connect } from 'socket.io-client';
 
-const socket = connect('/status');
+const socket = connect(process.env.REACT_APP_ENDPOINT_STATUS);
 
 export const StatusActions = Object.freeze({
 	GET: '[Status] GET',

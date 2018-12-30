@@ -1,6 +1,6 @@
 import { connect } from 'socket.io-client';
 
-const socket = connect('/schedule');
+const socket = connect(process.env.REACT_APP_ENDPOINT_SCHEDULE);
 
 export const ScheduleActions = Object.freeze({
 	GET: '[Schedule] GET',
