@@ -9,25 +9,44 @@ class Status extends Component {
 		return moment.tz(dateTime, 'Europe/Zurich').format('MMM DD, HH:mm:ss');
 	}
 
+	renderStatus(title, value) {
+		return (
+			<>
+				<strong>{title}:&nbsp;</strong>
+				{value || 'Loading'}
+			</>
+		);
+	}
+
 	render() {
 		const { status } = this.props;
+		const { entities } = status;
+		const { lights, relay, temperatureSensor } = entities;
 
 		return (
-			<div className="container">
-				<div className="server-time">
-					<strong>Server time:&nbsp;</strong>
-					{this.formatDateTime(status.time)}
-				</div>
+			<div className="panel">
+				<header className="panel__header">
+					<h3>Current Status</h3>
+				</header>
 
-				<div className="statuses">
-					{
-						status.entities.map((entity, index) =>
-							entity.status &&
-							<span key={index}>
-								{entity.type}: <strong>{entity.status}</strong>&nbsp;
-							</span>,
-						)
-					}
+				<div className="panel__content">
+					<header>
+						{this.renderStatus('Server time', status.time && this.formatDateTime(status.time))}
+					</header>
+
+					<main className="statuses">
+						<section className="status">
+							{this.renderStatus('Lights', lights)}
+						</section>
+
+						<section className="status">
+							{this.renderStatus('Relay', relay)}
+						</section>
+
+						<section className="status">
+							{this.renderStatus('Temperature', temperatureSensor)}
+						</section>
+					</main>
 				</div>
 			</div>
 		);

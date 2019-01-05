@@ -31,34 +31,28 @@ describe('schedule actions', () => {
 	});
 
 	describe('resetScheduleAction', () => {
-		it('should reset the schedule, and dispatch an action', () => {
+		it('should reset the schedule', () => {
 			const mockFn = jest.fn();
 			on('reset', mockFn);
 
 			expect(mockFn).not.toHaveBeenCalled();
 
-			resetScheduleAction()(dispatch);
+			resetScheduleAction('lights');
 
 			expect(mockFn).toHaveBeenCalled();
-			expect(dispatch).toHaveBeenCalledWith({
-				type: ScheduleActions.RESET,
-			});
 		});
 	});
 
 	describe('setScheduleAction', () => {
-		it('should reset the schedule, and dispatch an action', () => {
+		it('should reset the schedule', () => {
 			const mockFn = jest.fn();
 			on('set', mockFn);
 
 			expect(mockFn).not.toHaveBeenCalled();
 
-			setScheduleAction()(dispatch);
+			setScheduleAction('lights', 'off');
 
 			expect(mockFn).toHaveBeenCalled();
-			expect(dispatch).toHaveBeenCalledWith({
-				type: ScheduleActions.SET,
-			});
 		});
 	});
 });

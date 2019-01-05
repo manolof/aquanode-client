@@ -36,8 +36,8 @@ const mapStateToProps = (state) => ({
 // istanbul ignore next
 const mapDispatchToProps = (dispatch) => ({
 	getSchedule: () => dispatch(getScheduleAction()),
-	setSchedule: (value) => dispatch(setScheduleAction(value)),
-	resetSchedule: () => dispatch(resetScheduleAction()),
+	setSchedule: (type, value) => setScheduleAction(type, value),
+	resetSchedule: (type) => resetScheduleAction(type),
 });
 
 const ScheduleContainerConnect = connect(mapStateToProps, mapDispatchToProps)(ScheduleContainer);

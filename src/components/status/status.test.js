@@ -15,12 +15,10 @@ describe('Status Component', () => {
 	it('should render', () => {
 		const mockStatusProps = {
 			time: '2018-10-23',
-			entities: [
-				{
-					type: 'lights',
-					status: 'night',
-				},
-			],
+			entities: {
+				lights: 'day',
+				relay: 'on',
+			},
 		};
 
 		const wrapper = shallow(

@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecentTemperatures Container should render 1`] = `
+Array [
+  <RecentTemperatures
+    recentTemperatures={
+      Object {
+        "readings": Array [
+          Object {
+            "date": "2018-10-23",
+            "temperature": 42,
+          },
+        ],
+      }
+    }
+  />,
+]
+`;

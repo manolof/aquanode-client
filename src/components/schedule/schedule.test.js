@@ -7,17 +7,24 @@ describe('Schedule Component', () => {
 	const resetScheduleSpy = jest.fn();
 	const setScheduleSpy = jest.fn();
 	const mockScheduleProps = {
-		override: false,
-		items: [
-			{
-				job_name: 'night-17:0',
-				job_next_run: '2018-08-23T15:00:00.000Z',
-			},
-			{
-				job_name: 'day-7:0',
-				job_next_run: '2018-08-23T07:00:00.000Z',
-			},
-		],
+		lights: {
+			override: false,
+			jobs: [
+				{
+					job_name: 'day-7:0',
+					job_next_run: '2018-08-23T07:00:00.000Z',
+				},
+			],
+		},
+		relay: {
+			override: false,
+			jobs: [
+				{
+					job_name: 'day-7:0',
+					job_next_run: '2018-08-23T07:00:00.000Z',
+				},
+			],
+		},
 	};
 
 	afterEach(() => {
@@ -42,23 +49,29 @@ describe('Schedule Component', () => {
 		);
 
 		expect(resetScheduleSpy).not.toHaveBeenCalled();
-		wrapper.find('.reset').simulate('click');
+		wrapper.find('.schedule__reset').first().simulate('click');
 		expect(resetScheduleSpy).toHaveBeenCalled();
 
 		expect(setScheduleSpy).not.toHaveBeenCalled();
-		wrapper.find('.set-day').simulate('click');
+		wrapper.find('.schedule__set-day').first().simulate('click');
 		expect(setScheduleSpy).toHaveBeenCalledTimes(1);
-		expect(setScheduleSpy).toHaveBeenCalledWith('day');
+		expect(setScheduleSpy).toHaveBeenCalledWith('lights', 'day');
 
-		wrapper.find('.set-night').simulate('click');
+		wrapper.find('.schedule__set-night').first().simulate('click');
 		expect(setScheduleSpy).toHaveBeenCalledTimes(2);
-		expect(setScheduleSpy).toHaveBeenCalledWith('night');
+		expect(setScheduleSpy).toHaveBeenCalledWith('lights', 'night');
 	});
 
 	it('should render in override mode', () => {
 		const mockSchedulePropsOverride = {
-			...mockScheduleProps,
-			override: true,
+			lights: {
+				override: true,
+				jobs: [],
+			},
+			relay: {
+				override: true,
+				jobs: [],
+			},
 		};
 
 		const wrapper = shallow(

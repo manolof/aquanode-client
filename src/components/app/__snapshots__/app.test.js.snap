@@ -8,11 +8,13 @@ Array [
     <header
       className="app-header"
     >
-      <Connect(StatusContainer) />
+      <Header />
     </header>
     <div
       className="app-content container"
     >
+      <Connect(StatusContainer) />
+      <Connect(RecentTemperaturesContainer) />
       <Connect(ScheduleContainer) />
     </div>
   </div>,

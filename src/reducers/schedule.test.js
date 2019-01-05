@@ -1,46 +1,50 @@
 import { initialState, scheduleReducer } from './schedule';
 import { ScheduleActions } from '../actions/schedule';
 
-const mockSchedulePayload = [
-	{
-		job_name: 'night-17:0',
-		job_next_run: '2018-08-23T15:00:00.000Z',
-	},
-];
+const mockSchedulePayload = {
+	lights: [],
+	relay: [],
+};
 
 describe('Schedule reducer', () => {
 	it('should return the initial state', () => {
 		expect(scheduleReducer(undefined, {})).toEqual(initialState);
 	});
 
-	it('should handle GET_SUCCESS, RESET_SUCCESS', () => {
+	it('should handle GET', () => {
 		expect(
 			scheduleReducer(initialState, {
 				type: ScheduleActions.GET,
 				payload: mockSchedulePayload,
 			}),
 		).toEqual({
-			...initialState,
-			items: mockSchedulePayload,
+			lights: {
+				override: true,
+				jobs: [],
+			},
+			relay: {
+				override: true,
+				jobs: [],
+			},
 		});
 
 		expect(
 			scheduleReducer(initialState, {
-				type: ScheduleActions.RESET,
+				type: ScheduleActions.GET,
+				payload: {
+					...mockSchedulePayload,
+					relay: [{}],
+				},
 			}),
 		).toEqual({
-			...initialState,
-		});
-	});
-
-	it('should handle SET_SUCCESS', () => {
-		expect(
-			scheduleReducer(initialState, {
-				type: ScheduleActions.SET,
-			}),
-		).toEqual({
-			...initialState,
-			override: true,
+			lights: {
+				override: true,
+				jobs: [],
+			},
+			relay: {
+				override: false,
+				jobs: [{}],
+			},
 		});
 	});
 });
