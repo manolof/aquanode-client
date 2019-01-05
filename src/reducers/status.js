@@ -2,7 +2,7 @@ import { StatusActions } from '../actions/status';
 
 export const initialState = {
 	time: '',
-	entities: [],
+	entities: {},
 };
 
 const statusReducer = (state = initialState, action) => {

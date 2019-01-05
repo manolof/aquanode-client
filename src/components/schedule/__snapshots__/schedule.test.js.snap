@@ -8,52 +8,99 @@ Array [
     <header
       className="panel__header"
     >
-      Schedule
+      <h3>
+        Schedule
+      </h3>
     </header>
     <div
       className="panel__content"
     >
-      <p>
-        <strong>
-          "
-          day-7:0
-          "
-        </strong>
-         
-        Aug 23, 09:00
-      </p>
-      <p>
-        <strong>
-          "
-          night-17:0
-          "
-        </strong>
-         
-        Aug 23, 17:00
-      </p>
+      <main
+        className="schedules"
+      >
+        <section
+          className="schedule"
+        >
+          <header>
+            <h4>
+              Lights
+            </h4>
+          </header>
+          <article>
+            <p>
+              <strong>
+                "
+                day-7:0
+                "
+              </strong>
+               
+              Aug 23, 09:00
+            </p>
+          </article>
+          <footer
+            className="schedule__footer"
+          >
+            <button
+              className="schedule__reset"
+              onClick={[Function]}
+            >
+              RESET
+            </button>
+            <button
+              className="schedule__set-day"
+              onClick={[Function]}
+            >
+              SET DAY
+            </button>
+            <button
+              className="schedule__set-night"
+              onClick={[Function]}
+            >
+              SET NIGHT
+            </button>
+          </footer>
+        </section>
+        <section
+          className="schedule"
+        >
+          <header>
+            <h4>
+              Relay
+            </h4>
+          </header>
+          <article>
+            <p>
+              <strong>
+                "
+                day-7:0
+                "
+              </strong>
+               
+              Aug 23, 09:00
+            </p>
+          </article>
+          <footer
+            className="schedule__footer"
+          >
+            <button
+              onClick={[Function]}
+            >
+              RESET
+            </button>
+            <button
+              onClick={[Function]}
+            >
+              SET ON
+            </button>
+            <button
+              onClick={[Function]}
+            >
+              SET OFF
+            </button>
+          </footer>
+        </section>
+      </main>
     </div>
-    <footer
-      className="panel__footer"
-    >
-      <button
-        className="reset"
-        onClick={[Function]}
-      >
-        RESET
-      </button>
-      <button
-        className="set-day"
-        onClick={[Function]}
-      >
-        SET DAY
-      </button>
-      <button
-        className="set-night"
-        onClick={[Function]}
-      >
-        SET NIGHT
-      </button>
-    </footer>
   </div>,
 ]
 `;
@@ -66,37 +113,87 @@ Array [
     <header
       className="panel__header"
     >
-      Schedule
+      <h3>
+        Schedule
+      </h3>
     </header>
     <div
       className="panel__content"
     >
-      <p>
-        In override mode
-      </p>
+      <main
+        className="schedules"
+      >
+        <section
+          className="schedule"
+        >
+          <header>
+            <h4>
+              Lights
+            </h4>
+          </header>
+          <article>
+            <p>
+              In override mode
+            </p>
+          </article>
+          <footer
+            className="schedule__footer"
+          >
+            <button
+              className="schedule__reset"
+              onClick={[Function]}
+            >
+              RESET
+            </button>
+            <button
+              className="schedule__set-day"
+              onClick={[Function]}
+            >
+              SET DAY
+            </button>
+            <button
+              className="schedule__set-night"
+              onClick={[Function]}
+            >
+              SET NIGHT
+            </button>
+          </footer>
+        </section>
+        <section
+          className="schedule"
+        >
+          <header>
+            <h4>
+              Relay
+            </h4>
+          </header>
+          <article>
+            <p>
+              In override mode
+            </p>
+          </article>
+          <footer
+            className="schedule__footer"
+          >
+            <button
+              onClick={[Function]}
+            >
+              RESET
+            </button>
+            <button
+              onClick={[Function]}
+            >
+              SET ON
+            </button>
+            <button
+              onClick={[Function]}
+            >
+              SET OFF
+            </button>
+          </footer>
+        </section>
+      </main>
     </div>
-    <footer
-      className="panel__footer"
-    >
-      <button
-        className="reset"
-        onClick={[Function]}
-      >
-        RESET
-      </button>
-      <button
-        className="set-day"
-        onClick={[Function]}
-      >
-        SET DAY
-      </button>
-      <button
-        className="set-night"
-        onClick={[Function]}
-      >
-        SET NIGHT
-      </button>
-    </footer>
   </div>,
 ]
 `;

@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecentTemperatures Component should render 1`] = `
+Array [
+  <div
+    className="panel"
+  >
+    <header
+      className="panel__header"
+    >
+      <h3>
+        Recent Temperatures
+      </h3>
+    </header>
+    <main
+      className="panel__content"
+    >
+      <section
+        className="temperatures-graph-wrapper"
+      >
+        <Line
+          data={
+            Object {
+              "datasets": Array [
+                Object {
+                  "borderColor": "rgb(255, 99, 132)",
+                  "data": Array [
+                    42,
+                  ],
+                  "fill": false,
+                  "label": "Temperature (°C)",
+                  "lineTension": 0.1,
+                  "spanGaps": true,
+                },
+              ],
+              "labels": Array [
+                "Oct 23, 00:00",
+              ],
+            }
+          }
+          height={100}
+          options={
+            Object {
+              "hover": Object {
+                "intersect": true,
+                "mode": "nearest",
+              },
+              "legend": Object {
+                "display": false,
+              },
+              "responsive": true,
+              "scales": Object {
+                "xAxes": Array [
+                  Object {
+                    "display": true,
+                    "scaleLabel": Object {
+                      "display": false,
+                    },
+                  },
+                ],
+                "yAxes": Array [
+                  Object {
+                    "display": true,
+                    "scaleLabel": Object {
+                      "display": true,
+                      "labelString": "Temperature (°C)",
+                    },
+                    "ticks": Object {
+                      "stepSize": 0.5,
+                      "suggestedMin": 24,
+                    },
+                  },
+                ],
+              },
+              "tooltips": Object {
+                "intersect": false,
+                "mode": "index",
+              },
+            }
+          }
+        />
+      </section>
+    </main>
+  </div>,
+]
+`;

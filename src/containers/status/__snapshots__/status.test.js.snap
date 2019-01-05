@@ -5,12 +5,10 @@ Array [
   <Status
     status={
       Object {
-        "entities": Array [
-          Object {
-            "status": "night",
-            "type": "lights",
-          },
-        ],
+        "entities": Object {
+          "lights": "day",
+          "relay": "on",
+        },
         "time": "2018-10-23",
       }
     }

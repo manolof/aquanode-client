@@ -4,8 +4,6 @@ const socket = connect(process.env.REACT_APP_ENDPOINT_SCHEDULE);
 
 export const ScheduleActions = Object.freeze({
 	GET: '[Schedule] GET',
-	RESET: '[Schedule] RESET',
-	SET: '[Schedule] SET',
 });
 
 export const getScheduleAction = () => (dispatch) => {
@@ -17,18 +15,10 @@ export const getScheduleAction = () => (dispatch) => {
 	});
 };
 
-export const resetScheduleAction = () => (dispatch) => {
-	socket.emit('reset');
-
-	dispatch({
-		type: ScheduleActions.RESET,
-	});
+export const resetScheduleAction = (type) => {
+	socket.emit('reset', { type });
 };
 
-export const setScheduleAction = (value) => (dispatch) => {
-	socket.emit('set', value);
-
-	dispatch({
-		type: ScheduleActions.SET,
-	});
+export const setScheduleAction = (type, value) => {
+	socket.emit('set', { type, value });
 };

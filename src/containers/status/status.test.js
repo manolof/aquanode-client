@@ -8,12 +8,10 @@ describe('Status Container', () => {
 	const getStatusSpy = jest.fn();
 	const mockStatusProps = {
 		time: '2018-10-23',
-		entities: [
-			{
-				type: 'lights',
-				status: 'night',
-			},
-		],
+		entities: {
+			lights: 'day',
+			relay: 'on',
+		},
 	};
 
 	beforeEach(() => {

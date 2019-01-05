@@ -3,27 +3,64 @@
 exports[`Status Component should render 1`] = `
 Array [
   <div
-    className="container"
+    className="panel"
   >
-    <div
-      className="server-time"
+    <header
+      className="panel__header"
     >
-      <strong>
-        Server time: 
-      </strong>
-      Oct 23, 00:00:00
-    </div>
+      <h3>
+        Current Status
+      </h3>
+    </header>
     <div
-      className="statuses"
+      className="panel__content"
     >
-      <span>
-        lights
-        : 
-        <strong>
-          night
-        </strong>
-         
-      </span>
+      <header>
+        <React.Fragment>
+          <strong>
+            Server time
+            : 
+          </strong>
+          Oct 23, 00:00:00
+        </React.Fragment>
+      </header>
+      <main
+        className="statuses"
+      >
+        <section
+          className="status"
+        >
+          <React.Fragment>
+            <strong>
+              Lights
+              : 
+            </strong>
+            day
+          </React.Fragment>
+        </section>
+        <section
+          className="status"
+        >
+          <React.Fragment>
+            <strong>
+              Relay
+              : 
+            </strong>
+            on
+          </React.Fragment>
+        </section>
+        <section
+          className="status"
+        >
+          <React.Fragment>
+            <strong>
+              Temperature
+              : 
+            </strong>
+            Loading
+          </React.Fragment>
+        </section>
+      </main>
     </div>
   </div>,
 ]
