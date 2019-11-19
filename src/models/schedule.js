@@ -4,7 +4,7 @@ const Schedule = {
 	override: PropTypes.bool,
 	jobs: PropTypes.arrayOf(
 		PropTypes.shape({
-			job_name: PropTypes.string,
+			job_state: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 			job_next_run: PropTypes.string,
 		}),
 	),

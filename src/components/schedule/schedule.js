@@ -6,12 +6,22 @@ import './schedule.scss';
 import { ScheduleModel } from '../../models/schedule';
 
 class Schedule extends Component {
+
+	constructor(props) {
+		super(props);
+		this.state = {
+			red: '',
+			green: '',
+			blue: '',
+		};
+	}
+
 	resetSchedule(type) {
 		this.props.resetSchedule(type);
 	}
 
-	setSchedule(type, value) {
-		this.props.setSchedule(type, value);
+	setSchedule(type) {
+		this.props.setSchedule(type, this.state);
 	}
 
 	formatDateTime(dateTime) {
@@ -31,7 +41,7 @@ class Schedule extends Component {
 				.map((scheduleItem, index) =>
 					<p key={index}>
 						<strong>
-							&quot;{scheduleItem.job_name}&quot;
+							{JSON.stringify(scheduleItem.job_state)}
 						</strong>
 						&nbsp;
 						{this.formatDateTime(scheduleItem.job_next_run)}
@@ -39,8 +49,18 @@ class Schedule extends Component {
 				);
 	}
 
+	handleChange = (e) => {
+		e.persist();
+		const value = e.target.value;
+		this.setState(state => ({
+			...state,
+			[e.target.name]: value,
+		}));
+	};
+
 	render() {
 		const { schedule } = this.props;
+		const { red, green, blue } = this.state;
 		const { lights, relay } = schedule;
 
 		return (
@@ -62,8 +82,36 @@ class Schedule extends Component {
 
 							<footer className="schedule__footer">
 								<button className="schedule__reset" onClick={() => this.resetSchedule('lights')}>RESET</button>
-								<button className="schedule__set-day" onClick={() => this.setSchedule('lights', 'day')}>SET DAY</button>
-								<button className="schedule__set-night" onClick={() => this.setSchedule('lights', 'night')}>SET NIGHT</button>
+								<form>
+									<label>
+										R
+										<input
+											type="text"
+											name="red"
+											value={red}
+											onChange={this.handleChange}
+										/>
+									</label>
+									<label>
+										G
+										<input
+											type="text"
+											name="green"
+											value={green}
+											onChange={this.handleChange}
+										/>
+									</label>
+									<label>
+										B
+										<input
+											type="text"
+											name="blue"
+											value={blue}
+											onChange={this.handleChange}
+										/>
+									</label>
+									<button className="schedule__set" onClick={() => this.setSchedule('lights')}>SET</button>
+								</form>
 							</footer>
 						</section>
 
