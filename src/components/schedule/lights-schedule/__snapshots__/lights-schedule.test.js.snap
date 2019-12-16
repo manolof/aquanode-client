@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Lights Schedule Component should render 1`] = `
+Array [
+  <section
+    className="schedule schedule__lights"
+  >
+    <h4>
+      Lights
+    </h4>
+    <article
+      className="schedule__values"
+    >
+      <p>
+        Mock Schedule
+      </p>
+    </article>
+    <form
+      className="schedule__form"
+    >
+      <label>
+        R
+        <input
+          max="255"
+          min="0"
+          name="red"
+          onChange={[Function]}
+          type="number"
+          value=""
+        />
+      </label>
+      <label>
+        G
+        <input
+          max="255"
+          min="0"
+          name="green"
+          onChange={[Function]}
+          type="number"
+          value=""
+        />
+      </label>
+      <label>
+        B
+        <input
+          max="255"
+          min="0"
+          name="blue"
+          onChange={[Function]}
+          type="number"
+          value=""
+        />
+      </label>
+    </form>
+    <footer
+      className="schedule__footer"
+    >
+      <button
+        className="schedule__reset"
+        onClick={[Function]}
+      >
+        RESET
+      </button>
+      <button
+        className="schedule__set"
+        onClick={[Function]}
+      >
+        SET
+      </button>
+    </footer>
+  </section>,
+]
+`;

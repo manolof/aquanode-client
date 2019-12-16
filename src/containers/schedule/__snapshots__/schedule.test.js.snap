@@ -6,13 +6,24 @@ Array [
     resetSchedule={[MockFunction]}
     schedule={
       Object {
-        "items": Array [
-          Object {
-            "job_name": "night-17:0",
-            "job_next_run": "2018-08-23T15:00:00.000Z",
-          },
-        ],
-        "override": false,
+        "lights": Object {
+          "jobs": Array [
+            Object {
+              "job_next_run": "2018-08-23T15:00:00.000Z",
+              "job_state": "night-17:0",
+            },
+          ],
+          "override": false,
+        },
+        "relay": Object {
+          "jobs": Array [
+            Object {
+              "job_next_run": "2018-08-23T15:00:00.000Z",
+              "job_state": "night-17:0",
+            },
+          ],
+          "override": false,
+        },
       }
     }
     setSchedule={[MockFunction]}

@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Relay Schedule Component should render 1`] = `
+Array [
+  <section
+    className="schedule schedule__relay"
+  >
+    <h4>
+      Relay
+    </h4>
+    <article
+      className="schedule__values"
+    >
+      <p>
+        Mock Schedule
+      </p>
+    </article>
+    <footer
+      className="schedule__footer"
+    >
+      <button
+        className="schedule__reset"
+        onClick={[Function]}
+      >
+        RESET
+      </button>
+      <button
+        className="schedule__set"
+        onClick={[Function]}
+      >
+        SET ON
+      </button>
+      <button
+        className="schedule__set"
+        onClick={[Function]}
+      >
+        SET OFF
+      </button>
+    </footer>
+  </section>,
+]
+`;
