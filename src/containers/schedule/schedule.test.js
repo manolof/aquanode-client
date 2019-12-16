@@ -9,13 +9,24 @@ describe('Schedule Container', () => {
 	const setScheduleSpy = jest.fn();
 	const resetScheduleSpy = jest.fn();
 	const mockScheduleProps = {
-		override: false,
-		items: [
-			{
-				job_name: 'night-17:0',
-				job_next_run: '2018-08-23T15:00:00.000Z',
-			},
-		],
+		lights: {
+			override: false,
+			jobs: [
+				{
+					job_state: 'night-17:0',
+					job_next_run: '2018-08-23T15:00:00.000Z',
+				},
+			],
+		},
+		relay: {
+			override: false,
+			jobs: [
+				{
+					job_state: 'night-17:0',
+					job_next_run: '2018-08-23T15:00:00.000Z',
+				},
+			],
+		},
 	};
 
 	beforeEach(() => {

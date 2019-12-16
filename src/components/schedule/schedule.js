@@ -4,15 +4,10 @@ import moment from 'moment-timezone';
 
 import './schedule.scss';
 import { ScheduleModel } from '../../models/schedule';
+import { LightsSchedule } from './lights-schedule/lights-schedule';
+import { RelaySchedule } from './relay-schedule/relay-schedule';
 
 class Schedule extends Component {
-	resetSchedule(type) {
-		this.props.resetSchedule(type);
-	}
-
-	setSchedule(type, value) {
-		this.props.setSchedule(type, value);
-	}
 
 	formatDateTime(dateTime) {
 		return moment.tz(dateTime, 'Europe/Zurich').format('MMM DD, HH:mm');
@@ -31,7 +26,7 @@ class Schedule extends Component {
 				.map((scheduleItem, index) =>
 					<p key={index}>
 						<strong>
-							&quot;{scheduleItem.job_name}&quot;
+							{JSON.stringify(scheduleItem.job_state)}
 						</strong>
 						&nbsp;
 						{this.formatDateTime(scheduleItem.job_next_run)}
@@ -40,7 +35,7 @@ class Schedule extends Component {
 	}
 
 	render() {
-		const { schedule } = this.props;
+		const { schedule, setSchedule, resetSchedule } = this.props;
 		const { lights, relay } = schedule;
 
 		return (
@@ -51,37 +46,17 @@ class Schedule extends Component {
 
 				<div className="panel__content">
 					<main className="schedules">
-						<section className="schedule">
-							<header>
-								<h4>Lights</h4>
-							</header>
+						<LightsSchedule
+							schedule={this.renderScheduleJobList(lights)}
+							setSchedule={(type, value) => setSchedule(type, value)}
+							resetSchedule={(type) => resetSchedule(type)}
+						/>
 
-							<article>
-								{this.renderScheduleJobList(lights)}
-							</article>
-
-							<footer className="schedule__footer">
-								<button className="schedule__reset" onClick={() => this.resetSchedule('lights')}>RESET</button>
-								<button className="schedule__set-day" onClick={() => this.setSchedule('lights', 'day')}>SET DAY</button>
-								<button className="schedule__set-night" onClick={() => this.setSchedule('lights', 'night')}>SET NIGHT</button>
-							</footer>
-						</section>
-
-						<section className="schedule">
-							<header>
-								<h4>Relay</h4>
-							</header>
-
-							<article>
-								{this.renderScheduleJobList(relay)}
-							</article>
-
-							<footer className="schedule__footer">
-								<button onClick={() => this.resetSchedule('relay')}>RESET</button>
-								<button onClick={() => this.setSchedule('relay', 'on')}>SET ON</button>
-								<button onClick={() => this.setSchedule('relay', 'off')}>SET OFF</button>
-							</footer>
-						</section>
+						<RelaySchedule
+							schedule={this.renderScheduleJobList(relay)}
+							setSchedule={(type, value) => setSchedule(type, value)}
+							resetSchedule={(type) => resetSchedule(type)}
+						/>
 					</main>
 				</div>
 			</div>
