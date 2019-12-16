@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Component should render 1`] = `
+Array [
+  <div
+    className="container"
+  >
+    <h1>
+      Aquanode
+      <span
+        aria-label="Fish"
+        role="img"
+      >
+        🐟
+      </span>
+      <span
+        aria-label="Plant"
+        role="img"
+      >
+        🌿
+      </span>
+    </h1>
+  </div>,
+]
+`;

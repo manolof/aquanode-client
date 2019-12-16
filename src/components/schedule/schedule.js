@@ -4,25 +4,10 @@ import moment from 'moment-timezone';
 
 import './schedule.scss';
 import { ScheduleModel } from '../../models/schedule';
+import { LightsSchedule } from './lights-schedule/lights-schedule';
+import { RelaySchedule } from './relay-schedule/relay-schedule';
 
 class Schedule extends Component {
-
-	constructor(props) {
-		super(props);
-		this.state = {
-			red: '',
-			green: '',
-			blue: '',
-		};
-	}
-
-	resetSchedule(type) {
-		this.props.resetSchedule(type);
-	}
-
-	setSchedule(type) {
-		this.props.setSchedule(type, this.state);
-	}
 
 	formatDateTime(dateTime) {
 		return moment.tz(dateTime, 'Europe/Zurich').format('MMM DD, HH:mm');
@@ -49,18 +34,8 @@ class Schedule extends Component {
 				);
 	}
 
-	handleChange = (e) => {
-		e.persist();
-		const value = e.target.value;
-		this.setState(state => ({
-			...state,
-			[e.target.name]: value,
-		}));
-	};
-
 	render() {
-		const { schedule } = this.props;
-		const { red, green, blue } = this.state;
+		const { schedule, setSchedule, resetSchedule } = this.props;
 		const { lights, relay } = schedule;
 
 		return (
@@ -71,65 +46,17 @@ class Schedule extends Component {
 
 				<div className="panel__content">
 					<main className="schedules">
-						<section className="schedule">
-							<header>
-								<h4>Lights</h4>
-							</header>
+						<LightsSchedule
+							schedule={this.renderScheduleJobList(lights)}
+							setSchedule={(type, value) => setSchedule(type, value)}
+							resetSchedule={(type) => resetSchedule(type)}
+						/>
 
-							<article>
-								{this.renderScheduleJobList(lights)}
-							</article>
-
-							<footer className="schedule__footer">
-								<button className="schedule__reset" onClick={() => this.resetSchedule('lights')}>RESET</button>
-								<form>
-									<label>
-										R
-										<input
-											type="text"
-											name="red"
-											value={red}
-											onChange={this.handleChange}
-										/>
-									</label>
-									<label>
-										G
-										<input
-											type="text"
-											name="green"
-											value={green}
-											onChange={this.handleChange}
-										/>
-									</label>
-									<label>
-										B
-										<input
-											type="text"
-											name="blue"
-											value={blue}
-											onChange={this.handleChange}
-										/>
-									</label>
-									<button className="schedule__set" onClick={() => this.setSchedule('lights')}>SET</button>
-								</form>
-							</footer>
-						</section>
-
-						<section className="schedule">
-							<header>
-								<h4>Relay</h4>
-							</header>
-
-							<article>
-								{this.renderScheduleJobList(relay)}
-							</article>
-
-							<footer className="schedule__footer">
-								<button onClick={() => this.resetSchedule('relay')}>RESET</button>
-								<button onClick={() => this.setSchedule('relay', 'on')}>SET ON</button>
-								<button onClick={() => this.setSchedule('relay', 'off')}>SET OFF</button>
-							</footer>
-						</section>
+						<RelaySchedule
+							schedule={this.renderScheduleJobList(relay)}
+							setSchedule={(type, value) => setSchedule(type, value)}
+							resetSchedule={(type) => resetSchedule(type)}
+						/>
 					</main>
 				</div>
 			</div>
