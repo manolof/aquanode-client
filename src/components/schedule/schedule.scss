@@ -9,10 +9,30 @@
 	flex: 1;
 	flex-direction: column;
 
+	> *:not(:last-child) {
+		margin-bottom: $spacing-m;
+	}
+
 	&__footer {
 		display: flex;
 		flex: 1;
 		align-items: flex-end;
+	}
+
+	&__form {
+		display: flex;
+
+		label {
+			width: 50px;
+
+			&:not(:last-of-type) {
+				margin-right: $spacing-s;
+			}
+		}
+
+		input {
+			width: 100%;
+		}
 	}
 }
 
