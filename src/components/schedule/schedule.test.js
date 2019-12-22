@@ -11,8 +11,12 @@ describe('Schedule Component', () => {
 			override: false,
 			jobs: [
 				{
-					job_name: 'day-7:0',
+					job_state: 'day-7:0',
 					job_next_run: '2018-08-23T07:00:00.000Z',
+				},
+				{
+					job_state: 'day-5:0',
+					job_next_run: '2018-08-23T05:00:00.000Z',
 				},
 			],
 		},
@@ -20,20 +24,16 @@ describe('Schedule Component', () => {
 			override: false,
 			jobs: [
 				{
-					job_name: 'day-7:0',
+					job_state: 'day-7:0',
 					job_next_run: '2018-08-23T07:00:00.000Z',
+				},
+				{
+					job_state: 'day-9:0',
+					job_next_run: '2018-08-23T09:00:00.000Z',
 				},
 			],
 		},
 	};
-
-	afterEach(() => {
-		jest.resetAllMocks();
-	});
-
-	afterAll(() => {
-		jest.restoreAllMocks();
-	});
 
 	it('should render', () => {
 		const wrapper = shallow(
@@ -43,27 +43,8 @@ describe('Schedule Component', () => {
 		expect(wrapper.getElements()).toMatchSnapshot();
 	});
 
-	it('should have functioning buttons that modify the schedule', () => {
-		const wrapper = shallow(
-			<Schedule schedule={mockScheduleProps} resetSchedule={resetScheduleSpy} setSchedule={setScheduleSpy}/>,
-		);
-
-		expect(resetScheduleSpy).not.toHaveBeenCalled();
-		wrapper.find('.schedule__reset').first().simulate('click');
-		expect(resetScheduleSpy).toHaveBeenCalled();
-
-		expect(setScheduleSpy).not.toHaveBeenCalled();
-		wrapper.find('.schedule__set-day').first().simulate('click');
-		expect(setScheduleSpy).toHaveBeenCalledTimes(1);
-		expect(setScheduleSpy).toHaveBeenCalledWith('lights', 'day');
-
-		wrapper.find('.schedule__set-night').first().simulate('click');
-		expect(setScheduleSpy).toHaveBeenCalledTimes(2);
-		expect(setScheduleSpy).toHaveBeenCalledWith('lights', 'night');
-	});
-
 	it('should render in override mode', () => {
-		const mockSchedulePropsOverride = {
+		const overrideMockScheduleProps = {
 			lights: {
 				override: true,
 				jobs: [],
@@ -75,10 +56,9 @@ describe('Schedule Component', () => {
 		};
 
 		const wrapper = shallow(
-			<Schedule schedule={mockSchedulePropsOverride} resetSchedule={resetScheduleSpy} setSchedule={setScheduleSpy}/>,
+			<Schedule schedule={overrideMockScheduleProps} resetSchedule={resetScheduleSpy} setSchedule={setScheduleSpy}/>,
 		);
 
 		expect(wrapper.getElements()).toMatchSnapshot();
 	});
-
 });

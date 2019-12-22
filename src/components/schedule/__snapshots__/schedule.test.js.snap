@@ -18,87 +18,50 @@ Array [
       <main
         className="schedules"
       >
-        <section
-          className="schedule"
-        >
-          <header>
-            <h4>
-              Lights
-            </h4>
-          </header>
-          <article>
-            <p>
-              <strong>
-                "
-                day-7:0
-                "
-              </strong>
-               
-              Aug 23, 09:00
-            </p>
-          </article>
-          <footer
-            className="schedule__footer"
-          >
-            <button
-              className="schedule__reset"
-              onClick={[Function]}
-            >
-              RESET
-            </button>
-            <button
-              className="schedule__set-day"
-              onClick={[Function]}
-            >
-              SET DAY
-            </button>
-            <button
-              className="schedule__set-night"
-              onClick={[Function]}
-            >
-              SET NIGHT
-            </button>
-          </footer>
-        </section>
-        <section
-          className="schedule"
-        >
-          <header>
-            <h4>
-              Relay
-            </h4>
-          </header>
-          <article>
-            <p>
-              <strong>
-                "
-                day-7:0
-                "
-              </strong>
-               
-              Aug 23, 09:00
-            </p>
-          </article>
-          <footer
-            className="schedule__footer"
-          >
-            <button
-              onClick={[Function]}
-            >
-              RESET
-            </button>
-            <button
-              onClick={[Function]}
-            >
-              SET ON
-            </button>
-            <button
-              onClick={[Function]}
-            >
-              SET OFF
-            </button>
-          </footer>
-        </section>
+        <LightsSchedule
+          resetSchedule={[Function]}
+          schedule={
+            Array [
+              <p>
+                <strong>
+                  "day-5:0"
+                </strong>
+                 
+                Aug 23, 07:00
+              </p>,
+              <p>
+                <strong>
+                  "day-7:0"
+                </strong>
+                 
+                Aug 23, 09:00
+              </p>,
+            ]
+          }
+          setSchedule={[Function]}
+        />
+        <RelaySchedule
+          resetSchedule={[Function]}
+          schedule={
+            Array [
+              <p>
+                <strong>
+                  "day-7:0"
+                </strong>
+                 
+                Aug 23, 09:00
+              </p>,
+              <p>
+                <strong>
+                  "day-9:0"
+                </strong>
+                 
+                Aug 23, 11:00
+              </p>,
+            ]
+          }
+          setSchedule={[Function]}
+        />
       </main>
     </div>
   </div>,
@@ -123,75 +86,24 @@ Array [
       <main
         className="schedules"
       >
-        <section
-          className="schedule"
-        >
-          <header>
-            <h4>
-              Lights
-            </h4>
-          </header>
-          <article>
+        <LightsSchedule
+          resetSchedule={[Function]}
+          schedule={
             <p>
               In override mode
             </p>
-          </article>
-          <footer
-            className="schedule__footer"
-          >
-            <button
-              className="schedule__reset"
-              onClick={[Function]}
-            >
-              RESET
-            </button>
-            <button
-              className="schedule__set-day"
-              onClick={[Function]}
-            >
-              SET DAY
-            </button>
-            <button
-              className="schedule__set-night"
-              onClick={[Function]}
-            >
-              SET NIGHT
-            </button>
-          </footer>
-        </section>
-        <section
-          className="schedule"
-        >
-          <header>
-            <h4>
-              Relay
-            </h4>
-          </header>
-          <article>
+          }
+          setSchedule={[Function]}
+        />
+        <RelaySchedule
+          resetSchedule={[Function]}
+          schedule={
             <p>
               In override mode
             </p>
-          </article>
-          <footer
-            className="schedule__footer"
-          >
-            <button
-              onClick={[Function]}
-            >
-              RESET
-            </button>
-            <button
-              onClick={[Function]}
-            >
-              SET ON
-            </button>
-            <button
-              onClick={[Function]}
-            >
-              SET OFF
-            </button>
-          </footer>
-        </section>
+          }
+          setSchedule={[Function]}
+        />
       </main>
     </div>
   </div>,
