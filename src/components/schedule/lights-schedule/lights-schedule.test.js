@@ -39,6 +39,6 @@ describe('Lights Schedule Component', () => {
 		expect(setScheduleSpy).not.toHaveBeenCalled();
 		wrapper.find('.schedule__set').simulate('click');
 		expect(setScheduleSpy).toHaveBeenCalledTimes(1);
-		expect(setScheduleSpy).toHaveBeenLastCalledWith('lights', { blue: '', green: '', red: '199' });
+		expect(setScheduleSpy).toHaveBeenLastCalledWith('lights', { white: '', blue: '', green: '', red: '199' });
 	});
 });

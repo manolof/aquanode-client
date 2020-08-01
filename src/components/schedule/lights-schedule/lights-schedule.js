@@ -11,6 +11,7 @@ class LightsSchedule extends Component {
 			red: '',
 			green: '',
 			blue: '',
+			white: '',
 		};
 	}
 
@@ -25,7 +26,7 @@ class LightsSchedule extends Component {
 
 	render() {
 		const { schedule, resetSchedule, setSchedule } = this.props;
-		const { red, green, blue } = this.state;
+		const { red, green, blue, white } = this.state;
 
 		return (
 			<section className="schedule schedule__lights">
@@ -66,6 +67,17 @@ class LightsSchedule extends Component {
 							min="0"
 							max="255"
 							value={blue}
+							onChange={this.handleChange}
+						/>
+					</label>
+					<label>
+						W
+						<input
+							type="number"
+							name="white"
+							min="0"
+							max="255"
+							value={white}
 							onChange={this.handleChange}
 						/>
 					</label>
