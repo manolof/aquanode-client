@@ -51,6 +51,17 @@ Array [
           value=""
         />
       </label>
+      <label>
+        W
+        <input
+          max="255"
+          min="0"
+          name="white"
+          onChange={[Function]}
+          type="number"
+          value=""
+        />
+      </label>
     </form>
     <footer
       className="schedule__footer"
